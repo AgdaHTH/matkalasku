@@ -5,5 +5,4 @@
 
 [gitlog.txt](https://github.com/AgdaHTH/matkalasku/blob/master/laskarit/viikko1/gitlog.txt)
 
-Tämä on kurssin **Ohjelmistotekniikka** harjoitustyö (*Helsingin yliopisto*, kevät 2020).
 
