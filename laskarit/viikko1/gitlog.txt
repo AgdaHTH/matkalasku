@@ -12,7 +12,7 @@ commit 3b65347c673e5c893d3713ca84277372febd6a3c
 Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
 Date:   Mon Mar 16 13:36:41 2020 +0200
 
-    taas korjauksia
+    vielä korjauksia
 
  eka.txt      | 15 +++++++++------
  kolmas.txt   |  2 ++
