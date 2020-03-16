@@ -1,0 +1,103 @@
+commit 7c810115827aeabf5f064c39dda509e7fc5d183e
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 14:27:17 2020 +0200
+
+    muutoksia tiedostoihin
+
+ tiedostoja/file22 | 0
+ tiedostoja/file3  | 1 +
+ 2 files changed, 1 insertion(+)
+
+commit 3b65347c673e5c893d3713ca84277372febd6a3c
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 13:36:41 2020 +0200
+
+    taas korjauksia
+
+ eka.txt      | 15 +++++++++------
+ kolmas.txt   |  2 ++
+ tiedosto.txt | 39 ---------------------------------------
+ 3 files changed, 11 insertions(+), 45 deletions(-)
+
+commit 3d11c35dac618de0e178e2f92a04ead68c5a1fcf
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 13:33:56 2020 +0200
+
+    eka.txt uusi nimi
+
+ eka.txt | 39 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
+
+commit fa81aa4b4ad50cc1510b396da0fb8894d9ff0b8e
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 13:31:00 2020 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit b95358f1ac1f9d0e6bfd5f83e6e06697ab0414d8
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 13:25:09 2020 +0200
+
+    paljon lisää tekstiä
+
+ tiedosto.txt | 32 +++++++++++++++++++++++++-------
+ 1 file changed, 25 insertions(+), 7 deletions(-)
+
+commit edb706ff0aebc2bd2e9ffc1a0d1f8a02acf13dfe
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 13:21:03 2020 +0200
+
+    lisää tekstiä
+
+ tiedosto.txt | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+commit 18c3831bda25a6791a6d6c240655b2630989f0b9
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 12:44:29 2020 +0200
+
+    uusi hakemisto ja tiedosto
+
+ stuff/tuffitiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a5c7e6dab2f5c671faf4354963e057e74fa22629
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 12:42:41 2020 +0200
+
+    muutoksia toiseen ja kolmanteen tiedostoon
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 233a0c39460d0ffa4704f6a041f25c8d5006dd43
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 12:40:38 2020 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 940df2f6c81613d47b3074bd1030fe9d04d12015
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 12:38:18 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit e0d1345bdc094e93879527f214a3485512c5575f
+Author: Hilla Halla-aho <hilla.halla-aho@helsinki.fi>
+Date:   Mon Mar 16 12:26:21 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
