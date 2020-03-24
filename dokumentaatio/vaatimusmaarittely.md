@@ -1,4 +1,4 @@
-	﻿# Matkalaskujärjestelmä
+# Matkalaskujärjestelmä
 ## Harjoitustyö, Ohjelmistotekniikka (HY kevät 2020)
 
 ### Sovelluksen tarkoitus
