@@ -1,6 +1,7 @@
 # Ohjelmistotekniikka, harjoitustyö (HY kevät 2020)
 
 [Vaatimusmäärittely](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
 [Työaikakirjanpito](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Tehtävät
