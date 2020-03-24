@@ -29,6 +29,6 @@ matkan alku- ja loppupäivämäärästä sekä matkakuluista.
 * Ensimmäisessä vaiheessa matkakulut esitetään yhtenä summana mutta tätä on 
 mahdollista myöhemmin laajentaa niin, että matkakuluihin tulee tarkempi 
 erittely matkan eri vaiheista.
--Sovellukseen lisätään admin-käyttäjä, jonka on mahdollista merkitä 
+* Sovellukseen lisätään admin-käyttäjä, jonka on mahdollista merkitä 
 matkalaskuja hyväksytyiksi.
 
