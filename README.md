@@ -1,7 +1,7 @@
 # Matkalaskutus (Ohjelmistotekniikka, harjoitustyö, HY kevät 2020)
 
 Sovelluksen avulla on mahdollista pitää kirjaa matkalaskuista. Sovellusta voi käyttää useampi rekisteröitynyt 
-käyttäjä, joilla voi kaikilla on useita matkalaskuja.
+käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
 ## Dokumentaatio
 
