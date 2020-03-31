@@ -26,3 +26,8 @@ Testikattavuusraportti luodaan komennolla
 
     mvn test jacoco:report
 
+Jarin paketoiminen tapahtuu komennolla
+
+    mvn package
+
+
