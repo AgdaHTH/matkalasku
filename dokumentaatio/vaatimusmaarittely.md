@@ -21,7 +21,10 @@ vain peruskäyttäjiä.
 * Käyttäjä voi lisätä itselleen matkalaskun. 
 * Yhdellä käyttäjällä voi olla useampi matkalasku.
 * Matkalaskussa on tieto matkustajasta, matkakohteesta, 
-matkan alku- ja loppupäivämäärästä sekä matkakuluista. 
+matkan alku- ja loppupäivämäärästä, matkakuluista sekä päivärahasta.
+* Käyttäjä voi syöttää laskulle useita kulueriä
+* Sovellus laskee päivärahan matkan keston perusteella, ja sen mukaan,
+onko matka suuntautunut kotimaahan vai ulkomaille.
 
 ### Jatkokehitysmahdollisuuksia
 * Käyttäjä näkee kaikkien laskujensa yhteissumman 

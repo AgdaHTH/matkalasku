@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.matkalaskutus;
+package travelexpenses.ui;
 import java.util.Scanner;
+import travelexpenses.domain.ExpenseRegister;
 /**
  *
  * @author Hilla
@@ -12,12 +13,11 @@ import java.util.Scanner;
 public class Main {
     
     public static void main (String[] args){
-        System.out.println("hei");
+        System.out.println("Welcome!");
         Scanner reader = new Scanner(System.in);
-        System.out.println("Mitä");
-        String koe = reader.nextLine();
-        System.out.println(koe);
-        TextUI ui = new TextUI(reader);
+        ExpenseRegister register = new ExpenseRegister();
+        TextUI ui = new TextUI(reader, register);
+        
         ui.run();
     }
     
