@@ -1,14 +1,28 @@
-# Ohjelmistotekniikka, harjoitustyö (HY kevät 2020)
+# Matkalaskutus (Ohjelmistotekniikka, harjoitustyö, HY kevät 2020)
+
+Sovelluksen avulla on mahdollista pitää kirjaa matkalaskuista. Sovellusta voi käyttää useampi rekisteröitynyt 
+käyttäjä, joilla voi kaikilla on useita matkalaskuja.
+
+## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-## Tehtävät
-### Viikko 1
+## Komentorivitoiminnot
 
-[komentorivi.txt](https://github.com/AgdaHTH/matkalasku/blob/master/laskarit/viikko1/komentorivi.txt)
+### Projektin ajaminen
 
-[gitlog.txt](https://github.com/AgdaHTH/matkalasku/blob/master/laskarit/viikko1/gitlog.txt)
+Projektin ajaminen tapahtuu komennolla
 
+    mvn compile exec:java -Dexec.mainClass=travelexpenses.ui.Main
+
+### Testaus
+Testit suoritetaan komennolla
+
+    mvn test
+
+Testikattavuusraportti luodaan komennolla 
+
+    mvn test jacoco:report
 
