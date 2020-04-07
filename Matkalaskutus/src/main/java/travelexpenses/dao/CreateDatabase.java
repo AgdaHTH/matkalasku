@@ -33,7 +33,6 @@ public class CreateDatabase {
         }
 
         try {
-            System.out.println("Yritetään luoda tietokantaa ... ");
             connection.prepareStatement("CREATE TABLE User (id integer AUTO_INCREMENT PRIMARY KEY,"
                     + " surname varchar(20), forename varchar(15), username varchar(15));").executeUpdate();
             connection.prepareStatement("CREATE TABLE Bill (id integer AUTO_INCREMENT PRIMARY KEY,"

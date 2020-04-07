@@ -46,9 +46,10 @@ public class Bill { //pitäisikö tässäkin olla takana interface?
     
     public void addExpense(double expense) {
         //tarvitseeko näitä ollenkaan lisätä tietokantaan? 
-        //ehka sarakkeet expenses ja allowance vielä sinne
+        //ehka sarakeet expense ja allowance vielä sinne
         //luodaan tyhjinä ja päivitetään kun lasku on luotu ja
-        //sillä on numero
+        //sillä on numero TAI pelkkä expense ja allowance lasketaan aina erikseen?
+        //sarake boolean abroad vai ei niin voidaan laskea
         this.expense = expense;              
     }
     
@@ -72,6 +73,10 @@ public class Bill { //pitäisikö tässäkin olla takana interface?
         }
         double sumAllowance = days * allowance;
         return sumAllowance;
+    }
+    
+    public double countReimbursement() {
+        return countAllowance() + this.expense;
     }
     
     @Override
