@@ -11,15 +11,15 @@ import java.util.*;
  *
  * @author Hilla
  */
-public class Bill { //pitäisikö tässäkin olla takana interface?
+public class Bill { 
     private String destination;
     private LocalDate beginning;
     private LocalDate end;
     private boolean abroad;
-    private double expense; //vai joku lista tai mappi?
+    private double expense; 
     
     public Bill(String destination, LocalDate beginning, LocalDate end) {
-        this.destination = destination; //maa täytyy tietää päivärahan määrää varten
+        this.destination = destination; 
         this.abroad = false;
         this.beginning = beginning;
         this.end = end;
@@ -30,7 +30,11 @@ public class Bill { //pitäisikö tässäkin olla takana interface?
     
     public void setAbroad() {
         this.abroad = true;
-    }   
+    } 
+    
+    public boolean getAbroad() {
+        return this.abroad;
+    }
     
     public String getDestination() {
         return this.destination;
@@ -45,11 +49,6 @@ public class Bill { //pitäisikö tässäkin olla takana interface?
     }
     
     public void addExpense(double expense) {
-        //tarvitseeko näitä ollenkaan lisätä tietokantaan? 
-        //ehka sarakeet expense ja allowance vielä sinne
-        //luodaan tyhjinä ja päivitetään kun lasku on luotu ja
-        //sillä on numero TAI pelkkä expense ja allowance lasketaan aina erikseen?
-        //sarake boolean abroad vai ei niin voidaan laskea
         this.expense = expense;              
     }
     
@@ -82,7 +81,6 @@ public class Bill { //pitäisikö tässäkin olla takana interface?
     @Override
     public String toString() {
         return this.destination + ", " + this.beginning + ", " + this.end;
-    }
-    
+    }  
     
 }

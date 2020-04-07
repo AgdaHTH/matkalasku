@@ -38,12 +38,18 @@ public class BillTest {
     }
     
     @Test
-    public void billIsPrintedCorrectly(){
+    public void billIsPrintedCorrectly() {
     
     }
     
     @Test
-    public void beginningDateIsCorrect(){
+    public void setAbroadFunctionsCorrectly() {
+        bill.setAbroad();
+        assertEquals(true, bill.getAbroad());
+    }
+    
+    @Test
+    public void beginningDateIsCorrect() {
         assertEquals(LocalDate.of(2020, 1, 1), bill.getBeginningDate()); 
     }
     
@@ -61,6 +67,11 @@ public class BillTest {
     @Test
     public void countAllowanceCountsAllowanceCorrectlyHome(){
         assertEquals(138.0, bill.countAllowance(), 0.001);
-    }   //KOLMAS parametri kuinka paljon saa poiketa    
+    }   
     
+    @Test
+    public void countReimbursementCountsReimbursementCorrectly() {
+        bill.addExpense(105.30);
+        assertEquals(243.3, bill.countReimbursement(), 0.001);
+    }
 }

@@ -18,7 +18,7 @@ vain peruskäyttäjiä.
 
 #### Kirjautumisen jälkeen
 * Käyttäjä näkee listauksen omista matkalaskuistaan. -TEKEMÄTTÄ
-* Käyttäjä voi lisätä itselleen matkalaskun. -TEHTY (mutta ilman kirjautumista)
+* Käyttäjä voi lisätä itselleen matkalaskun. -TEHTY (tosin vielä ilman kirjautumista)
 * Yhdellä käyttäjällä voi olla useampi matkalasku. -TEHTY
 * Matkalaskussa on tieto matkustajasta, matkakohteesta, matkan alku- ja loppupäivämäärästä, matkakuluista 
 sekä päivärahasta. -TEHTY (paitsi tieto matkustajasta, eivätkä kulut ja pvrahat vielä tallennu tietokantaan)

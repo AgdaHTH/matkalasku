@@ -21,7 +21,6 @@ public class CreateDatabase {
 
     private Connection connection;
     private Statement stmt;
-    //protected PreparedStatement p;
 
     public CreateDatabase() {
 
@@ -40,46 +39,11 @@ public class CreateDatabase {
                       
         } catch (SQLException ex2) {
         }
-        /*try {
-            connection.close();
-        } catch (SQLException ex2){
         
-        }*/
     }
-    
-    
+       
 }
-    //taulujen poistaminen tarpeen vaatiessa
-    //conn.prepareStatement("DROP TABLE User IF EXISTS;").executeUpdate();
-    //conn.prepareStatement("DROP TABLE Bill IF EXISTS;").executeUpdate();
-    //eli jdbc:ssä ilmeisesti näin
-    //s.execute("DROP TABLE User IF EXISTS;");
-    //s.execute("DROP TABLE Bill IF EXISTS;");
     
-    /*
-    public void closeConnection() throws SQLException {
-        conn.close();
-    }
-    public void getConnection() throws SQLException {
-        conn = DriverManager.getConnection("jdbc:sqlite:travelexpenses.db");
-    }
-}
+    
 
-private static void alustaTietokanta() {
-
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:travelexpenses.db")) {
-            conn.prepareStatement("DROP TABLE User IF EXISTS;").executeUpdate();
-            conn.prepareStatement("DROP TABLE Bill IF EXISTS;").executeUpdate();
-            conn.prepareStatement("CREATE TABLE User (id integer AUTO_INCREMENT PRIMARY KEY,"
-                    +" surname varchar(20), forename varchar(15), username varchar(15);").executeUpdate();
-            conn.prepareStatement("CREATE TABLE Bill (id integer AUTO_INCREMENT PRIMARY KEY,"
-                    +"user_id integer, destination varchar(50), begindate date, enddate date, FOREIGN KEY (user_id) REFERENCES User(id));").executeUpdate();           
-
-} catch (SQLException ex) {
-            Logger.getLogger(VarausjarjestelmaSovellus.class  
-
-.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    */
 

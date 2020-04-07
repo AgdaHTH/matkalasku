@@ -19,18 +19,20 @@ import travelexpenses.dao.CreateDatabase;
 public class Main {
     
     static Connection conn;
-    //lopulta pitää olla niin, että pakettien ulkopuolella oleva main 
-    //kutsuu GUI:ssa olevaa mainia, jolloin allaoleva siirretään sinne 
+   
     public static void main(String[] args) throws SQLException {
         System.out.println("Welcome!");
         Scanner reader = new Scanner(System.in);
+        
         //tietokanta luodaan
+        //NB! POISTA KOMMENTOINTI JA AJA ENSIMMÄISELLÄ KERRALLA SEURAAVA RIVI!
         //CreateDatabase database = new CreateDatabase();
+        
         //jos tietokanta on jo olemassa, luodaan vain yhteys siihen
         getConnection();
         TextUI ui = new TextUI(reader, conn);       
         ui.run();
-        closeConnection(); //missä tämän pitää olla?       
+        closeConnection();       
     }
     
     public static void closeConnection() throws SQLException {

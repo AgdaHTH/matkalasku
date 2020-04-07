@@ -21,21 +21,15 @@ import travelexpenses.domain.TravelExpensesApp;
  * @author Hilla
  */
 public class TextUI {
-    private Scanner reader;
-    //private ExpenseRegister register;   
+    private Scanner reader;  
     protected Connection connection;
-    //luodaanko sovellusolio tässä vai pääohjelmassa kuten vinkattiin?
     
-    public TextUI(Scanner reader, Connection connection){ // tarvitaanko tätätä konstruktoria ollenkaan?
+    public TextUI(Scanner reader, Connection connection) { 
         this.reader = reader;
-        //this.register = register;
         this.connection = connection;
     }
     
-    public void run () throws SQLException{
-        
-        //luodaanko app olio tässä?
-        //ja sille edelleen parametrina connection?
+    public void run () throws SQLException {         
         DatabaseBillDao billdao = new DatabaseBillDao();
         DatabaseUserDao userdao = new DatabaseUserDao();
         TravelExpensesApp application = new TravelExpensesApp(userdao, billdao, this.connection);
@@ -63,7 +57,8 @@ public class TextUI {
                 System.out.println("Not ready yet!");
             }
             
-            else if (command.equals("3")){               
+            else if (command.equals("3")){
+                System.out.println("Not ready yet!");
                 printBills();
                 System.out.println("");
             }
@@ -81,7 +76,7 @@ public class TextUI {
         String date1 = reader.nextLine();
         String [] parts1 = date1.split("-");
         int year1 = Integer.valueOf(parts1[0]);
-        int month1 = Integer.valueOf(parts1[1]); //mitä tekee jos alkaa nollalla?
+        int month1 = Integer.valueOf(parts1[1]);
         int day1 = Integer.valueOf(parts1[2]);
         LocalDate beginning = LocalDate.of(year1, month1, day1);
         
@@ -89,13 +84,11 @@ public class TextUI {
         String date2 = reader.nextLine();
         String [] parts2 = date2.split("-");
         int year2 = Integer.valueOf(parts2[0]);
-        int month2 = Integer.valueOf(parts1[1]); //mitä tekee jos alkaa nollalla?
+        int month2 = Integer.valueOf(parts1[1]);
         int day2 = Integer.valueOf(parts1[2]);
         LocalDate end = LocalDate.of(year2, month2, day2);
         
         Bill bill = new Bill(destination, beginning, end);
-        //kutsutaan sovellusluokan metodia joka
-        //lisää laskun tietokantaan käyttäen daoa
         application.addBill(bill);
     }
     

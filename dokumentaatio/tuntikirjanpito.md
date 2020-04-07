@@ -14,13 +14,13 @@
 |       |        | vaatimusmäärittelyä ja README:tä. Tarkistin että toimii edelleen|
 |       |        | komentoriviltä ajettaessa Linuxissa. |
 |  6.4  |   2    | Perehdyin checkstyleen ja suunnittelin tiedontallennusta tietokantaan.  |
-|  7.4. |   8    | Lisäsin projektiin chekstylen. Tein Dao-pakkauksen, kirjoitin Dao-rajapinnat ja Dao-luokat |
+|  7.4. |   9    | Lisäsin projektiin chekstylen. Tein Dao-pakkauksen, kirjoitin Dao-rajapinnat ja Dao-luokat |
 |       |        | Bill- ja User-luokille. Otin käyttöön sqlite-tietokannan, mihin meni paljon aikaa.| 
 |       |        | Lisäsin toiminnallisuuden, jossa lasku (Bill) voidaan lisätä tietokantaan. 
-|       |        | Ajoin checkstyle-tarkistuksen ja tein korjaukset, kaikki olivat joko ylimääräisiä tai|
-|       |        | puuttuvia välilyöntejä. Lisäsin yhden testin jota en viimeksi saanut toimimaan.|
-|       |        | Pohdin ohjelman rakennetta ja tietokantayhteyden luomista. Rakenne pitää muuttaa,|
-|       |        | varmaan samalla kun otan käyttöön JavaFX:n.|
+|       |        | Ajoin checkstyle-tarkistuksen ja tein korjaukset, kaikki virheet olivat joko ylimääräisiä tai|
+|       |        | puuttuvia välilyöntejä. Lisäsin yhden testin jota en viimeksi saanut toimimaan, sekä kaksi|
+|       |        | uutta testiä Bill-luokalle. Pohdin ohjelman rakennetta ja tietokantayhteyden luomista.|
+|       |        | Rakenne pitää muuttaa, teen sen varmaan samalla kun otan käyttöön JavaFX:n.|
 |       |        | Jatkoin Bill-luokan kehittämistä, mutta en päässyt kovin pitkälle. |
 |       |        | Tein alustavan pakkaus- ja luokkakaavion ja arkkitehtuuri-tiedoston. Päivitin |
 |       |        | vaatimusmäärittelyn, README:n ja .gitignoren.|
