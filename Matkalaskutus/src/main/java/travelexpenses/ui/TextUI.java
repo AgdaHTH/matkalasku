@@ -4,27 +4,42 @@
  * and open the template in the editor.
  */
 package travelexpenses.ui;
+import java.sql.Connection;
+import java.sql.SQLException;
 import travelexpenses.domain.Bill;
 import travelexpenses.domain.ExpenseRegister;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
+import travelexpenses.dao.BillDao;
+import travelexpenses.dao.DatabaseBillDao;
+import travelexpenses.dao.DatabaseUserDao;
+import travelexpenses.dao.UserDao;
+import travelexpenses.domain.TravelExpensesApp;
 /**
  *
  * @author Hilla
  */
 public class TextUI {
     private Scanner reader;
-    private ExpenseRegister register;    
+    //private ExpenseRegister register;   
+    protected Connection connection;
     //luodaanko sovellusolio tässä vai pääohjelmassa kuten vinkattiin?
     
-    public TextUI(Scanner reader, ExpenseRegister register){ // tarvitaanko tätätä konstruktoria ollenkaan?
+    public TextUI(Scanner reader, Connection connection){ // tarvitaanko tätätä konstruktoria ollenkaan?
         this.reader = reader;
-        this.register = register;
+        //this.register = register;
+        this.connection = connection;
     }
     
-    public void run (){
-    
+    public void run () throws SQLException{
+        
+        //luodaanko app olio tässä?
+        //ja sille edelleen parametrina connection?
+        DatabaseBillDao billdao = new DatabaseBillDao();
+        DatabaseUserDao userdao = new DatabaseUserDao();
+        TravelExpensesApp application = new TravelExpensesApp(userdao, billdao, this.connection);
+        
         while(true){
             System.out.println("Choose one of the following: ");
             System.out.println(" x - exit");
@@ -40,7 +55,7 @@ public class TextUI {
             }
             
             else if (command.equals("1")){
-                addBill(reader);                
+                addBill(reader, application);                
             }
             
             else if (command.equals("2")){
@@ -57,7 +72,7 @@ public class TextUI {
     
     }
     
-    private void addBill(Scanner reader){
+    private void addBill(Scanner reader, TravelExpensesApp application) throws SQLException {
         System.out.println("Welcome to add a travel expenses statement!");
         System.out.println("Please enter travel destination");
         String destination = reader.nextLine();
@@ -78,13 +93,14 @@ public class TextUI {
         int day2 = Integer.valueOf(parts1[2]);
         LocalDate end = LocalDate.of(year2, month2, day2);
         
-        //nämä luomiset pitää siirtää sovellusluokkaan, jota tässä sitten kutsutaan
         Bill bill = new Bill(destination, beginning, end);
-        this.register.addBill(bill);
+        //kutsutaan sovellusluokan metodia joka
+        //lisää laskun tietokantaan käyttäen daoa
+        application.addBill(bill);
     }
     
     private void printBills(){
-        System.out.println(this.register.toString());
+        //System.out.println(this.register.toString());
     }
     
     private void editBill(Scanner reader){

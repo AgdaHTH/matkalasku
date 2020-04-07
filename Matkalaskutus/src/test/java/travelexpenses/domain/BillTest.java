@@ -58,9 +58,9 @@ public class BillTest {
         assertEquals(4, days); //NB tämä nyt niin että loppupäivä ei ole mukana   
     }
     
-//    @Test
-//    public void countAllowanceCountsAllowanceCorrectlyHome(){
-//        assertEquals(138.0, bill.countAllowance());
-//    }       
+    @Test
+    public void countAllowanceCountsAllowanceCorrectlyHome(){
+        assertEquals(138.0, bill.countAllowance(), 0.001);
+    }   //KOLMAS parametri kuinka paljon saa poiketa    
     
 }

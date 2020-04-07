@@ -14,18 +14,18 @@ import java.util.ArrayList;
 public class ExpenseRegister {
     private ArrayList<Bill> bills;
     
-    public ExpenseRegister(){
+    public ExpenseRegister() {
         this.bills = new ArrayList<>();
     }
     
-    public void addBill(Bill bill){
+    public void addBill(Bill bill) {
         this.bills.add(bill);
     }
     
     @Override
-    public String toString(){
+    public String toString() {
         String list = "";
-        for (Bill bill : bills){
+        for (Bill bill : bills) {
             list = list.concat(bill.toString() + "\n");
         }
         
