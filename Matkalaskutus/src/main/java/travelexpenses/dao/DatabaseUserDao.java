@@ -29,13 +29,13 @@ public class DatabaseUserDao implements UserDao {
                 + "WHERE username = ?");
         stmt.setString(1, username);
 
-        ResultSet resultSet = stmt.executeQuery();     
-        
+        ResultSet resultSet = stmt.executeQuery();
+
         ArrayList<User> users = new ArrayList<>();
         while (resultSet.next()) {
-            User user = new User (resultSet.getInt("id"), resultSet.getString("surname"), 
+            User user = new User(resultSet.getInt("id"), resultSet.getString("surname"),
                     resultSet.getString("forename"), resultSet.getString("username"));
-            users.add(user);                    
+            users.add(user);
         }
         return users;
     }
@@ -52,15 +52,15 @@ public class DatabaseUserDao implements UserDao {
         stmt.executeUpdate();
         stmt.close();
         //connection.close();
-        
+
     }
-    
+
     @Override
     public void delete(User user, Connection connection) throws SQLException {
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM User WHERE"
-        + " username = ?");
+                + " username = ?");
         stmt.setString(1, user.getUsername());
-        
+
         stmt.executeUpdate();
         stmt.close();
     }

@@ -15,7 +15,10 @@ import travelexpenses.domain.User;
  * @author Hilla
  */
 public interface UserDao {
+
     void create(User user, Connection connection) throws SQLException;
-    List<User> read (String user, Connection connection) throws SQLException;
-    void delete (User user, Connection connection) throws SQLException;
+
+    List<User> read(String user, Connection connection) throws SQLException;
+
+    void delete(User user, Connection connection) throws SQLException;
 }

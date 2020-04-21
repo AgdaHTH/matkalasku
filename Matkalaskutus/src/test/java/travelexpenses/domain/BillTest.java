@@ -29,7 +29,7 @@ public class BillTest {
     
     @Before
     public void setUp() {
-        bill = new Bill("Oxford", LocalDate.of(2020,1,1), LocalDate.of(2020, 1,5));
+        bill = new Bill("Oxford", LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5));
     }
     
     @Test

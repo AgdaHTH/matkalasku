@@ -6,4 +6,5 @@
 
 <suppressions>
     <suppress files="travelexpenses.ui.TextUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="travelexpenses.ui.GraphicalUI.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

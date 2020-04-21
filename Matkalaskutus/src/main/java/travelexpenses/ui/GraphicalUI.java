@@ -65,19 +65,19 @@ public class GraphicalUI extends Application {
         loginPane.getChildren().addAll(welcome, loginMessage, inputPane, loginButton, createUserButton);
 
         loginButton.setOnAction(e -> {
-            
+
             String username = usernameInput.getText();
             //menuLabel.setText(username + " logged in...");
 
             if (application.login(username)) {
-                loginMessage.setText("");            
+                loginMessage.setText("");
                 primaryStage.setScene(expensesScene);
                 usernameInput.setText("");
             } else {
                 usernameInput.setText("");
                 loginMessage.setText("Username not found!");
                 loginMessage.setTextFill(Color.RED);
-            }      
+            }
         });
 
         createUserButton.setOnAction(e -> {
@@ -102,15 +102,15 @@ public class GraphicalUI extends Application {
         newSurnameLabel.setPrefWidth(100);
 
         newSurnamePane.getChildren().addAll(newSurnameLabel, newSurnameInput);
-        
+
         HBox newForenamePane = new HBox(10);
         newForenamePane.setPadding(new Insets(10));
         TextField newForenameInput = new TextField();
         Label newForenameLabel = new Label("Forename:");
         newForenameLabel.setPrefWidth(100);
-        
+
         newForenamePane.getChildren().addAll(newForenameLabel, newForenameInput);
-        
+
         Label userCreationMessage = new Label();
 
         Button createNewUserButton = new Button("Create");
@@ -143,10 +143,10 @@ public class GraphicalUI extends Application {
         });
 
         //uuden käyttäjän näkymä
-        newUserPane.getChildren().addAll(userCreationMessage, newUsernamePane, newSurnamePane, 
+        newUserPane.getChildren().addAll(userCreationMessage, newUsernamePane, newSurnamePane,
                 newForenamePane, createNewUserButton);
         newUserScene = new Scene(newUserPane, 300, 250);
-        
+
         // uuden laskun luominen        
         VBox newBillPane = new VBox(15);
         TextField destinationInput = new TextField();
@@ -188,41 +188,40 @@ public class GraphicalUI extends Application {
             Double newexpenses = Double.valueOf(expensesInput.getText());
             //kulut eivät vielä mene tietokantaan!
             Bill bill = new Bill(newdestination, beginning, end);
-            if (this.application.addBill(bill)){
+            if (this.application.addBill(bill)) {
                 primaryStage.setScene(logoutScene);
                 //jos onnistui niin uusi näkymä jossa ilmoitetaan tämä
                 //ja kysytään lopetetaanko vai palataanko alkuun tms.
             } //jos ei niin Something went wrong
-            
+
         });
-        
+
         VBox logoutPane = new VBox(10);
         Label billCreatedMessage = new Label("The travel statement was created succesfully!");
         Button logoutButton = new Button("Logout");
         Label closeWindowLabel = new Label("");
         logoutPane.getChildren().addAll(billCreatedMessage, logoutButton, closeWindowLabel);
-        
+
         logoutButton.setOnAction(e -> {
             application.logout();
             closeWindowLabel.setText("You can now close this window");
         });
-        
+
         expensesScene = new Scene(newBillPane);
         logoutScene = new Scene(logoutPane, 300, 250);
-        
+
         primaryStage.setTitle("Travel expenses");
         loginScene = new Scene(loginPane, 300, 250);
         primaryStage.setScene(loginScene);
         primaryStage.show();
-        
-        
-        primaryStage.setOnCloseRequest(e->{
+
+        primaryStage.setOnCloseRequest(e -> {
             System.out.println("closing");
             System.out.println(application.getCurrentUser());
-            if (application.getCurrentUser()!=null) {
-                e.consume();   
+            if (application.getCurrentUser() != null) {
+                e.consume();
             }
-        
+
         });
 
     }
@@ -235,8 +234,7 @@ public class GraphicalUI extends Application {
 
     public static void main(String[] args) {
         //tietokanta luodaan
-        //NB! POISTA KOMMENTOINTI JA AJA ENSIMMÄISELLÄ KERRALLA SEURAAVA RIVI!
-        //CreateDatabase database = new CreateDatabase();
+        CreateDatabase database = new CreateDatabase();
         launch(args);
     }
 }
