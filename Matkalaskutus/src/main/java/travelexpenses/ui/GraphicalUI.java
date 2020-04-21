@@ -233,8 +233,6 @@ public class GraphicalUI extends Application {
     }
 
     public static void main(String[] args) {
-        //tietokanta luodaan
-        CreateDatabase database = new CreateDatabase();
         launch(args);
     }
 }

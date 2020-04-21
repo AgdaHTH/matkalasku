@@ -14,12 +14,12 @@ käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
 ## Tietokannan alustaminen
 
-Ohjelma alustaa tietokannan käyttöliittymän (travelexpenses.ui.GraphicalUI) main-metodissa
-komennolla
+Ohjelma alustaa tietokannan kutsumalla luokan travelexpenses.domain.TravelExpensesApp 
+konstruktorissa metodia createDatabase(), joka alustaa tietokannan luomalla luokan:
 
     CreateDatabase database = new CreateDatabase();
 
-Tätä riviä ei tarvitse ajaa uudestaan.
+Metodia createDatabase ei tarvitse kutsua sen jälkeen kun tietokanta on luotu.
 
 ## Komentorivitoiminnot
 

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import travelexpenses.dao.BillDao;
+import travelexpenses.dao.CreateDatabase;
 import travelexpenses.dao.DatabaseBillDao;
 import travelexpenses.dao.DatabaseUserDao;
 import travelexpenses.dao.UserDao;
@@ -33,6 +34,11 @@ public class TravelExpensesApp {
         this.connection = DriverManager.getConnection("jdbc:sqlite:travelexpenses.db");
         this.userdao = userdao;
         this.billdao = billdao;
+        createDatabase();
+    }
+    
+    public void createDatabase(){
+        CreateDatabase database = new CreateDatabase();
     }
 
     public boolean login(String username) {
