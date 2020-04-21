@@ -18,24 +18,26 @@ import travelexpenses.domain.Bill;
  * @author Hilla
  */
 public class DatabaseBillDao implements BillDao {
-    
+
     public DatabaseBillDao() {
-    
+
     }
+
     @Override
     public void create(Bill bill, Connection connection) throws SQLException {
         PreparedStatement stmt = connection.prepareStatement("INSERT INTO Bill"
-            + " (destination, begindate, enddate)"
-            + " VALUES (?, ?, ?)");
+                + " (destination, begindate, enddate)"
+                + " VALUES (?, ?, ?)");
         stmt.setString(1, bill.getDestination());
         java.sql.Date sqlbeginDate = java.sql.Date.valueOf(bill.getBeginningDate());
-        stmt.setDate(2, sqlbeginDate);      
+        stmt.setDate(2, sqlbeginDate);
         java.sql.Date sqlendDate = java.sql.Date.valueOf(bill.getEndDate());
         stmt.setDate(3, sqlendDate);
-        
+
         stmt.executeUpdate();
         stmt.close();
+        //kannattaako sulkea täällä?
         connection.close();
     }
-    
+
 }

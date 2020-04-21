@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import travelexpenses.domain.ExpenseRegister;
+
 import travelexpenses.dao.CreateDatabase;
 /**
  *
@@ -29,9 +29,12 @@ public class Main {
         //CreateDatabase database = new CreateDatabase();
         
         //jos tietokanta on jo olemassa, luodaan vain yhteys siihen
-        getConnection();
-        TextUI ui = new TextUI(reader, conn);       
-        ui.run();
+        //getConnection();
+        //TextUI ui = new TextUI(reader, conn);       
+        //ui.run();
+        
+        GraphicalUI graphicalui =  new GraphicalUI();
+        //suljetaan tietokantayhteys
         closeConnection();       
     }
     

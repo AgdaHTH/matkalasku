@@ -14,7 +14,8 @@ käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
 ## Tietokannan alustaminen
 
-Kun ohjelman ajaa ensimmäisen kerran, Main-luokassa (travelexpenses.ui.Main) pitää poistaa kommentit riviltä
+Kun ohjelman ajaa ensimmäisen kerran, käyttöliittymän (travelexpenses.ui.GraphicalUI) 
+main-metodista pitää poistaa kommentit riviltä
 
     //CreateDatabase database = new CreateDatabase();
 
@@ -26,7 +27,7 @@ jotta tietokanta alustuu.
 
 Projektin ajaminen tapahtuu komennolla
 
-    mvn compile exec:java -Dexec.mainClass=travelexpenses.ui.Main
+    mvn compile exec:java -Dexec.mainClass=travelexpenses.main.Main
 
 ### Testaus
 Testit suoritetaan komennolla

@@ -7,7 +7,7 @@ package travelexpenses.ui;
 import java.sql.Connection;
 import java.sql.SQLException;
 import travelexpenses.domain.Bill;
-import travelexpenses.domain.ExpenseRegister;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
@@ -32,7 +32,7 @@ public class TextUI {
     public void run () throws SQLException {         
         DatabaseBillDao billdao = new DatabaseBillDao();
         DatabaseUserDao userdao = new DatabaseUserDao();
-        TravelExpensesApp application = new TravelExpensesApp(userdao, billdao, this.connection);
+       // TravelExpensesApp application = new TravelExpensesApp(userdao, billdao, this.connection);
         
         while(true){
             System.out.println("Choose one of the following: ");
@@ -49,7 +49,7 @@ public class TextUI {
             }
             
             else if (command.equals("1")){
-                addBill(reader, application);                
+                //addBill(reader, application);                
             }
             
             else if (command.equals("2")){
