@@ -45,7 +45,7 @@ Jarin paketoiminen tapahtuu komennolla
 
     mvn package
 
-generoi hakemistoon *target* suoritettavan jar-tiedoston *Matkalaskutus-1.0-SNAPSHOT.jar*
+joka tuottaa hakemistoon *target* suoritettavan jar-tiedoston *Matkalaskutus-1.0-SNAPSHOT.jar*
 
 Checkstyle-raportti syntyy komennolla
 
