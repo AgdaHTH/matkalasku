@@ -14,12 +14,13 @@ käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
 ## Tietokannan alustaminen
 
-Ohjelma alustaa tietokannan kutsumalla luokan travelexpenses.domain.TravelExpensesApp 
-konstruktorissa metodia createDatabase(), joka alustaa tietokannan luomalla luokan:
+Ohjelma alustaa käyttämänsä tietokannan kutsumalla luokan travelexpenses.domain.TravelExpensesApp 
+konstruktorissa samassa luokassa olevaa metodia createDatabase(), joka alustaa tietokannan.
+Metodia createDatabase() ei tarvitse kutsua sen jälkeen kun tietokanta on luotu.
 
-    CreateDatabase database = new CreateDatabase();
+## Releaset
 
-Metodia createDatabase ei tarvitse kutsua sen jälkeen kun tietokanta on luotu.
+[Viikko 5](https://github.com/AgdaHTH/matkalasku/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
 
@@ -38,12 +39,16 @@ Testikattavuusraportti luodaan komennolla
 
     mvn test jacoco:report
 
+Luotua raporttia voi tarkastella avaamalla selaimella tiedoston *target/site/jacoco/index.html*
+
 Jarin paketoiminen tapahtuu komennolla
 
     mvn package
+
+generoi hakemistoon *target* suoritettavan jar-tiedoston *Matkalaskutus-1.0-SNAPSHOT.jar*
 
 Checkstyle-raportti syntyy komennolla
 
     mvn jxr:jxr checkstyle:checkstyle
 
-
+ja sitä voi tarkastella avaamalla selaimessa tiedoston *target/site/checkstyle.html*

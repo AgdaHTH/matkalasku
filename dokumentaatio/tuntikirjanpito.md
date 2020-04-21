@@ -24,6 +24,17 @@
 |       |        | Jatkoin Bill-luokan kehittämistä, mutta en päässyt kovin pitkälle. |
 |       |        | Tein alustavan pakkaus- ja luokkakaavion ja arkkitehtuuri-tiedoston. Päivitin |
 |       |        | vaatimusmäärittelyn, README:n ja .gitignoren.|
- 
-
+| 20.4. |   8    | Suunnittelin graafista käyttöliittymää ja koodasin siitä ensimmäisen version. Lisäsin| 
+|       |        | käyttäjän rekisteröitymis- ja kirjautumistoiminnallisuuden DatabaseUserDao-luokkaan,| 
+|       |        | sovelluslogiikkaan ja käyttöliittymään.|
+| 21.4. |   8    | Jatkoin käyttöliittymän ja sovelluslogiikan kehittämistä. Muutin tietokannan Bill-taulua|
+|       |        | niin että sinne voi jatkossa lisätä tiedon matkakuluista ja viiteavainsarakkeena tiedon|
+|       |        | laskun tehneestä käyttäjästä. Tein testejä sovelluslogiikkaluokalle (TravelExpensesApp).|
+|       |        | Lisäsin DatabaseUserDao-luokkaan ja sovelluslogiikkaan mahdollisuuden poistaa käyttäjä|
+|       |        | tietokannasta. Sain tämän avulla testit toimimaan ja testikattavuudeksi reilut 60%.| 
+|       |        | Lopuksi siirsin vielä tietokannan alustamisen järkevämpään paikkaan eli käyttöliittymästä| 
+|       |        | sovelluslogiikkaan, jolloin ohjelman suoritus jar-tiedostosta onnistuu.| 
+|       |        | Tein sekvenssikaavion käyttäjän luomisesta ja viikon 5 releasen Githubiin. Päivitin |
+|       |        | vaatimusmäärittelyn, README:n ja .gitignoren.|
+| Yht.  | 39.5   |
 

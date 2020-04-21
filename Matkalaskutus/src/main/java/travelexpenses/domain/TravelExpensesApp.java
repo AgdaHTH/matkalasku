@@ -36,8 +36,8 @@ public class TravelExpensesApp {
         this.billdao = billdao;
         createDatabase();
     }
-    
-    public void createDatabase(){
+
+    public void createDatabase() {
         CreateDatabase database = new CreateDatabase();
     }
 
