@@ -14,12 +14,12 @@ käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
 ## Tietokannan alustaminen
 
-Kun ohjelman ajaa ensimmäisen kerran, käyttöliittymän (travelexpenses.ui.GraphicalUI) 
-main-metodista pitää poistaa kommentit riviltä
+Ohjelma alustaa tietokannan käyttöliittymän (travelexpenses.ui.GraphicalUI) main-metodissa
+komennolla
 
-    //CreateDatabase database = new CreateDatabase();
+    CreateDatabase database = new CreateDatabase();
 
-jotta tietokanta alustuu.
+Tätä riviä ei tarvitse ajaa uudestaan.
 
 ## Komentorivitoiminnot
 
