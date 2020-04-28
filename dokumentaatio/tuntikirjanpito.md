@@ -38,13 +38,13 @@
 |       |        | vaatimusmäärittelyn, README:n ja .gitignoren.|
 | 27.4. |    1   | Tutustuin JavaDociin ja aloitin sen kirjoittamisen.|
 | 28.4. |    9   | Kirjoitin JavaDocin useammalle luokalle. Lisäsin tietokannan Bill-tauluun sarakkeet|
-|       |        | kuluja ja päivärahaa varten. Lisäsin nämä myös muuttujiksi Bill-luokkaan. Muutin Dao-|
+|       |        | usempia kuluja ja päivärahaa varten. Lisäsin nämä myös muuttujiksi Bill-luokkaan. Muutin Dao-|
 |       |        | luokan metodit ottamaan huomioon nämä ja Bill-taulun viiteavaimen User-luokkaan. |
 |       |        | Lisäsin käyttöliittymään kohdat, joissa valitaan syötetyn kulun tyyppi ja lasketaan|
 |       |        | päiväraha. Korjasin bugin matkan loppupäivämäärän syötössä. Siirsin päivärahaan liittyvän|
 |       |        | toiminnallisuuden omaan luokkaansa, mutta tämän toteuttaminen jäi kesken. Laadin alustavan|
 |       |        | arkkitehtuurikuvauksen ja käyttöohjeen sekä päivitin vaatimusmäärittelyn ja readmen.|
 |       |        | Testikattavuusraportti antoi aiemmin yli 60% mutta nyt lopuksi ajaessani sen tuli ihan muita|
-|       |        | tuloksia, ja varoituksia että jokin ei täsmää. En ehtinyt selvittää mistä tämä johtuu.|
+|       |        | tuloksia, ja varoituksia että jokin ei täsmää. Löysin onneksi telegramista vinkin: clean&build.|
 | Yht.  | 49.5   |
 
