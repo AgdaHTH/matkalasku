@@ -45,7 +45,7 @@ rakenne on seuraavanlainen:
 
 
     User 	id integer PRIMARY KEY AUTOINCREMENT
-      	   	surname varchar(20) 
+      	 surname varchar(20) 
 		forename varchar(15) 
 		username varchar(15)
 
