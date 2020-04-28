@@ -53,7 +53,7 @@ rakenne on seuraavanlainen:
 		|
 		|
 		|
-		|
+	      * |
 
     Bill 	id integer PRIMARY KEY AUTOINCREMENT
   		destination varchar(50) 

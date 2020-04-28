@@ -3,6 +3,11 @@
 Sovelluksen avulla on mahdollista pitää kirjaa matkalaskuista. Sovellusta voi käyttää useampi rekisteröitynyt 
 käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
+## NB viikko 6
+
+Päivärahan laskemistoiminallisuuden siirtäminen omaan luokkaansa on kesken ja tämän vuoksi
+käyttöliittymässä sekä Bill- ja Allowance -luokissa (ja niiden testiluokissa) on toisteista koodia.
+
 ## Dokumentaatio
 [Käyttöohje](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/kayttoohje.md)
 
@@ -22,6 +27,8 @@ Metodia createDatabase() ei tarvitse kutsua sen jälkeen kun tietokanta on luotu
 ## Releaset
 
 [Viikko 5](https://github.com/AgdaHTH/matkalasku/releases/tag/viikko5)
+
+[Viikko 6](https://github.com/AgdaHTH/matkalasku/releases/tag/viikko6)
 
 ## Komentorivitoiminnot
 
