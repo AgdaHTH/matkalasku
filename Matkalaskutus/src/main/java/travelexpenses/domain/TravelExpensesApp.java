@@ -35,7 +35,7 @@ public class TravelExpensesApp {
         this.connection = DriverManager.getConnection("jdbc:sqlite:travelexpenses.db");
         this.userdao = userdao;
         this.billdao = billdao;
-        //createDatabase();
+        createDatabase();
     }
 
     /**
