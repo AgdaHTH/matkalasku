@@ -42,11 +42,23 @@ Testikattavuusraportti luodaan komennolla
 
 Luotua raporttia voi tarkastella avaamalla selaimella tiedoston *target/site/jacoco/index.html*
 
+### Jar
+
 Jarin paketoiminen tapahtuu komennolla
 
     mvn package
 
 joka tuottaa hakemistoon *target* suoritettavan jar-tiedoston *Matkalaskutus-1.0-SNAPSHOT.jar*
+
+### JavaDoc
+
+JavaDoc luodaan komennolla
+
+    mvn javadoc:javadoc
+
+minkä jälkeen JavaDocin näkee avaamalla selaimella tiedoston *target/site/apidocs/index.html*
+
+### Checkstyle
 
 Checkstyle-raportti syntyy komennolla
 

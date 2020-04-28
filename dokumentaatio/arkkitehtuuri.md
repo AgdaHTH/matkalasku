@@ -43,30 +43,28 @@ Uuden matkalaskun luominen on kuvattu allaolevassa kaaviossa:
 Sovellus käyttää travelexpenses.db-nimistä sqlite-tietokantaa. Tietokannan
 rakenne on seuraavanlainen:
 
-_________________________________________________
-User 	id integer PRIMARY KEY AUTOINCREMENT
-      	surname varchar(20) 
-	forename varchar(15) 
-	username varchar(15)
-_________________________________________________
+
+    User 	id integer PRIMARY KEY AUTOINCREMENT
+      	   	surname varchar(20) 
+		forename varchar(15) 
+		username varchar(15)
+
 		| 1
 		|
 		|
 		|
 		|
-______________*_|_________________________________
 
-Bill 	id integer PRIMARY KEY AUTOINCREMENT
-  	destination varchar(50) 
-	begindate date 
-	enddate date 
-	expense1 float 
-	expense2 float
-	expense3 float 
-	allowance float 
-	user_id integer 
-	FOREIGN KEY (user_id) REFERENCES User(id)
-_____________________________________________________
+    Bill 	id integer PRIMARY KEY AUTOINCREMENT
+  		destination varchar(50) 
+		begindate date 
+		enddate date 
+		expense1 float 
+		expense2 float
+		expense3 float 
+		allowance float 
+		user_id integer 
+		FOREIGN KEY (user_id) REFERENCES User(id)
 
 
 Tietokanta alustuu kutsumalla luokan TravelExpensesApp-konstruktorissa
