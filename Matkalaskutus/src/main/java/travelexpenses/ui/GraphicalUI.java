@@ -13,6 +13,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -28,8 +29,8 @@ import travelexpenses.domain.TravelExpensesApp;
 import travelexpenses.domain.User;
 
 /**
+ * Luokka sisältää JavaFX-kirjaston avulla toteutetun käyttöliittymän.
  *
- * @author Hilla
  */
 public class GraphicalUI extends Application {
 
@@ -38,7 +39,16 @@ public class GraphicalUI extends Application {
     private Scene newUserScene;
     private Scene expensesScene;
     private Scene logoutScene;
+    private double allowance;
+    //private User currentUser;
 
+    /**
+     * Metodi alustaa userdao- ja billdao -oliot sekä luo sovelluslogiikkaa
+     * hoitavan luokan TravelExpensesApp-olion.
+     *
+     * @throws Exception Heittää poikkeuksen, jos dao-olioiden luominen ei
+     * onnistunut.
+     */
     @Override
     public void init() throws Exception {
         DatabaseUserDao userdao = new DatabaseUserDao();
@@ -46,6 +56,14 @@ public class GraphicalUI extends Application {
         this.application = new TravelExpensesApp(userdao, billdao);
     }
 
+    /**
+     * Metodi sisältää graafisen käyttöliittymän luovan ja käyttöliittymää
+     * käyttävän koodin.
+     *
+     * @param primaryStage JavaFX-kirjaston Stage-olio
+     * @throws SQLException Heittää poikkeuksen, jos tietokannan käsittelyssä
+     * tapahtui virhe.
+     */
     @Override
     public void start(Stage primaryStage) throws SQLException {
         Label welcome = new Label("Welcome! Please login or create a new user:");
@@ -62,12 +80,12 @@ public class GraphicalUI extends Application {
         Button loginButton = new Button("Login");
         Button createUserButton = new Button("Create a new user");
 
-        loginPane.getChildren().addAll(welcome, loginMessage, inputPane, loginButton, createUserButton);
+        loginPane.getChildren().addAll(welcome, loginMessage, inputPane, loginButton,
+                createUserButton);
 
         loginButton.setOnAction(e -> {
 
             String username = usernameInput.getText();
-            //menuLabel.setText(username + " logged in...");
 
             if (application.login(username)) {
                 loginMessage.setText("");
@@ -126,8 +144,8 @@ public class GraphicalUI extends Application {
             if (username.length() == 2 || surname.length() < 2) { //MUUTA
                 userCreationMessage.setText("Username or name too short");
                 userCreationMessage.setTextFill(Color.RED);
-            } else try {
-                if (this.application.createUser(user)) { //palauttaa false jos tulee SQLEx
+            } else {
+                if (this.application.createUser(user)) {
                     userCreationMessage.setText("");
                     loginMessage.setText("New user created!");
                     loginMessage.setTextFill(Color.GREEN);
@@ -136,8 +154,7 @@ public class GraphicalUI extends Application {
                     userCreationMessage.setText("username has to be unique");
                     userCreationMessage.setTextFill(Color.RED);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(GraphicalUI.class.getName()).log(Level.SEVERE, null, ex);
+
             }
 
         });
@@ -147,29 +164,34 @@ public class GraphicalUI extends Application {
                 newForenamePane, createNewUserButton);
         newUserScene = new Scene(newUserPane, 300, 250);
 
-        // uuden laskun luominen        
+        // uuden laskun luominen
         VBox newBillPane = new VBox(15);
         TextField destinationInput = new TextField();
         TextField startDateInput = new TextField();
         TextField endDateInput = new TextField();
-        TextField expensesInput = new TextField();
+        TextField expenses1Input = new TextField();
 
+        Label loggedinLabel = new Label();
+        //loggedinLabel.setText("logged in: " + currentUser.getUsername());
         Label destinationLabel = new Label("Destination:");
         Label startDateLabel = new Label("Start date (YYYY-MM-DD):");
         Label endDateLabel = new Label("End date (YYYY-MM-DD):");
         Label expensesLabel = new Label("Expenses:");
-        //Label allowance = new Label(); ? kenttä johon lasketaan päiväraha
-        //Label abroad = new Label(); tämän kanssa nappi kotimaassa / ulkomailla
+        ChoiceBox<String> expense1box = new ChoiceBox();
+        expense1box.getItems().addAll("Flights", "Hotel", "Other");
+        expense1box.setValue("Flights");
+        Label allowanceLabel = new Label("Allowance:");
+        Label allowanceCountedLabel = new Label();
+        //Label abroadLabel = new Label();
 
+        Button countAllowanceButton = new Button("Count allowance");
         Button createBillButton = new Button("Create a travel expenses statement");
         newBillPane.setPadding(new Insets(20));
-        newBillPane.getChildren().addAll(destinationLabel, destinationInput, startDateLabel, startDateInput,
-                endDateLabel, endDateInput, expensesLabel, expensesInput, createBillButton);
+        newBillPane.getChildren().addAll(loggedinLabel, destinationLabel, destinationInput, startDateLabel, startDateInput,
+                endDateLabel, endDateInput, expensesLabel, expense1box, expenses1Input,
+                countAllowanceButton, allowanceLabel, allowanceCountedLabel, createBillButton);
 
-        createBillButton.setOnAction(e -> {
-            User currentUser = application.getCurrentUser();
-            int user_id = currentUser.getId();
-            String newdestination = destinationInput.getText();
+        countAllowanceButton.setOnAction(e -> {
             String newStartDate = startDateInput.getText();
             String newEndDate = endDateInput.getText();
 
@@ -181,18 +203,39 @@ public class GraphicalUI extends Application {
 
             String[] parts2 = newEndDate.split("-");
             int year2 = Integer.valueOf(parts2[0]);
-            int month2 = Integer.valueOf(parts1[1]);
-            int day2 = Integer.valueOf(parts1[2]);
+            int month2 = Integer.valueOf(parts2[1]);
+            int day2 = Integer.valueOf(parts2[2]);
             LocalDate end = LocalDate.of(year2, month2, day2);
 
-            Double newexpenses = Double.valueOf(expensesInput.getText());
-            //kulut eivät vielä mene tietokantaan!
-            Bill bill = new Bill(newdestination, beginning, end);
+            allowance = this.application.getAllowance(beginning, end);
+            allowanceCountedLabel.setText(String.valueOf(allowance));
+        });
+
+        createBillButton.setOnAction(e -> {
+            User currentUser = application.getCurrentUser();
+            int userid = currentUser.getId();
+            String newdestination = destinationInput.getText();
+
+            String newStartDate = startDateInput.getText();
+            String newEndDate = endDateInput.getText();
+
+            String[] parts1 = newStartDate.split("-");
+            int year1 = Integer.valueOf(parts1[0]);
+            int month1 = Integer.valueOf(parts1[1]);
+            int day1 = Integer.valueOf(parts1[2]);
+            LocalDate beginning = LocalDate.of(year1, month1, day1);
+
+            String[] parts2 = newEndDate.split("-");
+            int year2 = Integer.valueOf(parts2[0]);
+            int month2 = Integer.valueOf(parts2[1]);
+            int day2 = Integer.valueOf(parts2[2]);
+            LocalDate end = LocalDate.of(year2, month2, day2);
+
+            Double expense1 = Double.valueOf(expenses1Input.getText());
+            Bill bill = new Bill(userid, newdestination, beginning, end, expense1, allowance);
             if (this.application.addBill(bill)) {
                 primaryStage.setScene(logoutScene);
-                //jos onnistui niin uusi näkymä jossa ilmoitetaan tämä
-                //ja kysytään lopetetaanko vai palataanko alkuun tms.
-            } //jos ei niin Something went wrong
+            }
 
         });
 
@@ -216,8 +259,6 @@ public class GraphicalUI extends Application {
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(e -> {
-            System.out.println("closing");
-            System.out.println(application.getCurrentUser());
             if (application.getCurrentUser() != null) {
                 e.consume();
             }
@@ -226,10 +267,15 @@ public class GraphicalUI extends Application {
 
     }
 
+    /**
+     * Metodi sulkee tietokantayhteyden.
+     *
+     * @throws SQLException Heittää poikkeuksen, jos tietokantayhteyden
+     * sulkeminen ei onnistunut.
+     */
     @Override
     public void stop() throws SQLException {
         this.application.closeDatabaseConnection();
-        System.out.println("Application closes!");
     }
 
     public static void main(String[] args) {

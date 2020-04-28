@@ -88,7 +88,7 @@ public class TextUI {
         int day2 = Integer.valueOf(parts1[2]);
         LocalDate end = LocalDate.of(year2, month2, day2);
         
-        Bill bill = new Bill(destination, beginning, end);
+        Bill bill = new Bill(1, destination, beginning, end, 12.2, 13.3);
         application.addBill(bill);
     }
     

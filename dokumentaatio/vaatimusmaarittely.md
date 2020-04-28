@@ -7,32 +7,28 @@ yhdistyksessä. Rekisteröitynyt käyttäjä voi tehdä itselleen matkalaskun.
 Sovellusta käytetään graafisen käyttöliittymän kautta.
 
 ### Käyttäjät
-Sovelluksessa on tarkoitus olla kaksi käyttäjäryhmää, matkalaskujen tekijät 
-eli normaalit käyttäjät ja admin-tason käyttäjä, joka voi hyväksyä tehtyjä 
-matkalaskuja maksettavaksi. Ensimmäisessä vaiheessa sovelluksessa on kuitenkin
-vain peruskäyttäjiä.
+Ensimmäisessä vaiheessa sovelluksessa on vain peruskäyttäjiä.Toisessa vaiheessa on tarkoitus olla
+kaksi käyttäjäryhmää, matkalaskujen tekijät  eli normaalit käyttäjät ja admin-tason käyttäjä, joka voi hyväksyä tehtyjä 
+matkalaskuja maksettavaksi.
 
 ### Perustoiminnallisuudet
 #### Ennen kirjautumista
 * Käyttäjä voi rekisteröityä sovellukseen. -TEHTY
 * Rekisteröitynyt käyttäjä voi kirjautua sisään sovellukseen. -TEHTY
 
-#### Kirjautumisen jälkeen
-* Käyttäjä näkee listauksen omista matkalaskuistaan. -TEKEMÄTTÄ
-* Käyttäjä voi lisätä itselleen matkalaskun. -TEHTY (PUUTTUU yhteys laskun ja tekijän väliltä)
-* Yhdellä käyttäjällä voi olla useampi matkalasku. -TEHTY (PUUTTUU yhteys laskun ja tekijän väliltä)
+#### Kirjautumisen jälkeen 
+* Käyttöliittymässä näkyy kirjautuneen käyttäjän tunnus -TEKEMÄTTÄ
+* Käyttäjä voi lisätä itselleen matkalaskun. -TEHTY
+* Yhdellä käyttäjällä voi olla useampi matkalasku. -TEHTY
 * Matkalaskussa on tieto matkustajasta, matkakohteesta, matkan alku- ja loppupäivämäärästä, matkakuluista 
-sekä päivärahasta. -TEHTY (PUUTTUU tieto matkustajasta, eivätkä kulut ja pvrahat vielä tallennu tietokantaan)
-* Käyttäjä voi syöttää laskulle useita kulueriä. -TEKEMÄTTÄ (eikä ehkä onnistu ilman tietokannan laajentamista)
-* Sovellus laskee päivärahan matkan keston perusteella, ja sen mukaan,
-onko matka suuntautunut kotimaahan vai ulkomaille. -TEHTY (PUUTTUU tämän näkyminen käyttöliittymässä)
+sekä päivärahasta ja nämä kaikki tallentuvat tietokantaan. -TEHTY
+* Käyttäjä voi syöttää laskulle useita kulueriä. -TEKEMÄTTÄ
+* Sovellus laskee päivärahan matkan keston perusteella, ja sen mukaan, onko matka suuntautunut 
+kotimaahan vai ulkomaille. -TEHTY (PUUTTUU ulkomaille suuntautuneen matkan käsittely)
 
 ### Jatkokehitysmahdollisuuksia
-* Käyttäjä näkee kaikkien laskujensa yhteissumman 
+* Käyttäjä näkee listauksen omista matkalaskuistaan.
 * Käyttäjä voi selata laskujaan tietyltä aikaväliltä
-* Ensimmäisessä vaiheessa matkakulut esitetään yhtenä summana mutta tätä on 
-mahdollista myöhemmin laajentaa niin, että matkakuluihin tulee tarkempi 
-erittely matkan eri vaiheista.
 * Sovellukseen lisätään admin-käyttäjä, jonka on mahdollista merkitä 
 matkalaskuja hyväksytyiksi.
 

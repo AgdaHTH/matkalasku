@@ -75,7 +75,10 @@ public class TravelExpensesAppTest {
 
     @Test
     public void loginWhenUserDoesNotExist() throws SQLException {
-        boolean success = application.login("mape");
+        User user = new User("Kepa", "Keppinen", "keppi");
+        application.createUser(user);
+        application.deleteUser(user);
+        boolean success = application.login(user.getUsername());
         assertEquals(false, success);
     }
 

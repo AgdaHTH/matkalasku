@@ -32,11 +32,11 @@ public class CreateDatabase {
         }
 
         try {
-            connection.prepareStatement("CREATE TABLE User (id integer AUTO_INCREMENT PRIMARY KEY,"
+            connection.prepareStatement("CREATE TABLE User (id integer PRIMARY KEY AUTOINCREMENT,"
                     + " surname varchar(20), forename varchar(15), username varchar(15));").executeUpdate();
-            connection.prepareStatement("CREATE TABLE Bill (id integer AUTO_INCREMENT PRIMARY KEY,"
-                    + " destination varchar(50), begindate date, enddate date, expenses float,"
-                    + " user_id integer, FOREIGN KEY (user_id) REFERENCES User(id));").executeUpdate();
+            connection.prepareStatement("CREATE TABLE Bill (id integer PRIMARY KEY AUTOINCREMENT,"
+                    + " destination varchar(50), begindate date, enddate date, expense1 float, expense2 float,"
+                    + " expense3 float, allowance float, user_id integer, FOREIGN KEY (user_id) REFERENCES User(id));").executeUpdate();
                       
         } catch (SQLException ex2) {
         }

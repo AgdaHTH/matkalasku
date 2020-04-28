@@ -4,6 +4,7 @@ Sovelluksen avulla on mahdollista pitää kirjaa matkalaskuista. Sovellusta voi 
 käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
 ## Dokumentaatio
+[Käyttöohje](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/kayttoohje.md)
 
 [Vaatimusmäärittely](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/vaatimusmaarittely.md)
 

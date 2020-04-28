@@ -12,20 +12,37 @@ import java.util.*;
  * @author Hilla
  */
 public class Bill { 
+    private int userid;
     private String destination;
     private LocalDate beginning;
     private LocalDate end;
     private boolean abroad;
-    private double expense; 
+    private double expense1;
+    private double allowance;
     
-    public Bill(String destination, LocalDate beginning, LocalDate end) {
+    public Bill(int userid, String destination, LocalDate beginning, LocalDate end, 
+            Double expense1, Double allowance) {
+        this.userid = userid;
         this.destination = destination; 
         this.abroad = false;
         this.beginning = beginning;
         this.end = end;
+        this.expense1 = expense1;
+        this.allowance = allowance;
     }
-    public Bill(String destination) {
-        this.destination = destination;        
+    
+    public Bill(String destination, LocalDate beginning, LocalDate end) {
+        this.destination = destination;
+        this.beginning = beginning;
+        this.end = end;        
+    }
+    
+    public double getAllowance() {
+        return this.allowance;
+    }
+    
+    public int getUserid(){
+        return this.userid;
     }
     
     public void setAbroad() {
@@ -49,17 +66,16 @@ public class Bill {
     }
     
     public void addExpense(double expense) {
-        this.expense = expense;              
+        this.expense1 = expense;              
     }
     
-    public double getExpense() {
-        return this.expense;
+    public double getExpense1() {
+        return this.expense1;
     }
     
     public long countDays() {
-        long days = ChronoUnit.DAYS.between(this.beginning, this.end);
-        //NB tuossa ei ole mukana loppupäivämäärää mutta ei ehkä haittaa
-        //tai sitten return days + 1
+        long days = ChronoUnit.DAYS.between(this.beginning, this.end);    
+        //ehkä return days + 1
         return days;
     }
     
@@ -75,7 +91,7 @@ public class Bill {
     }
     
     public double countReimbursement() {
-        return countAllowance() + this.expense;
+        return countAllowance() + this.expense1;
     }
     
     @Override

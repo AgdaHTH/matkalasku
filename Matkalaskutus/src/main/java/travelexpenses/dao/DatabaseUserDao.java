@@ -14,8 +14,8 @@ import java.util.List;
 import travelexpenses.domain.User;
 
 /**
- *
- * @author Hilla
+ * Luokka tarjoaa metodit käyttäjää koskevan tietokannassa olevan tiedon
+ * luomiseen, lukemiseen ja poistamiseen.
  */
 public class DatabaseUserDao implements UserDao {
 
@@ -23,6 +23,14 @@ public class DatabaseUserDao implements UserDao {
 
     }
 
+    /**
+     * Metodi lukee tietokannan User-taulusta käyttäjän tiedot.
+     *
+     * @param username Käyttäjän käyttäjänimi
+     * @param connection JDBC-tietokantayhteys
+     * @return Lista käyttäjistä
+     * @throws SQLException Jos käyttäjän tietojen lukeminen ei onnistu
+     */
     @Override
     public List<User> read(String username, Connection connection) throws SQLException {
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM User "
@@ -40,6 +48,14 @@ public class DatabaseUserDao implements UserDao {
         return users;
     }
 
+    /**
+     * Metodi luo tietokannan User-tauluun uuden rivin.
+     *
+     * @param user Uusi käyttäjä
+     * @param connection JDBC-tietokantayhteys
+     * @throws SQLException Heittää poikkeuksen, jos uuden käyttäjän luominen ei
+     * onnistu
+     */
     @Override
     public void create(User user, Connection connection) throws SQLException {
         PreparedStatement stmt = connection.prepareStatement("INSERT INTO User"
@@ -55,6 +71,13 @@ public class DatabaseUserDao implements UserDao {
 
     }
 
+    /**
+     * Metodi poistaa tietokannan User-taulusta käyttäjän tiedot.
+     *
+     * @param user Poistettava käyttäjä
+     * @param connection JDBC-tietokantayhteys
+     * @throws SQLException Jos käyttäjän tietojen poistaminen ei onnistu
+     */
     @Override
     public void delete(User user, Connection connection) throws SQLException {
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM User WHERE"
