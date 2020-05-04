@@ -31,26 +31,18 @@ public class Bill {
         this.allowance = allowance;
     }
     
-    public Bill(String destination, LocalDate beginning, LocalDate end) {
-        this.destination = destination;
-        this.beginning = beginning;
-        this.end = end;        
-    }
+//    public Bill(String destination, LocalDate beginning, LocalDate end) {
+//        this.destination = destination;
+//        this.beginning = beginning;
+//        this.end = end;        
+//    }
     
     public double getAllowance() {
         return this.allowance;
     }
     
-    public int getUserid(){
+    public int getUserid() {
         return this.userid;
-    }
-    
-    public void setAbroad() {
-        this.abroad = true;
-    } 
-    
-    public boolean getAbroad() {
-        return this.abroad;
     }
     
     public String getDestination() {
@@ -71,32 +63,11 @@ public class Bill {
     
     public double getExpense1() {
         return this.expense1;
-    }
+    }                
     
-    public long countDays() {
-        long days = ChronoUnit.DAYS.between(this.beginning, this.end);    
-        //ehkä return days + 1
-        return days;
-    }
-    
-    
-    public double countAllowance() {
-        long days = this.countDays(); 
-        double allowance = 34.5;
-        if (this.abroad == true) {
-            allowance = 45.2;
-        }
-        double sumAllowance = days * allowance;
-        return sumAllowance;
-    }
-    
-    public double countReimbursement() {
-        return countAllowance() + this.expense1;
-    }
-    
-    @Override
-    public String toString() {
-        return this.destination + ", " + this.beginning + ", " + this.end;
-    }  
+//    public double countReimbursement() {
+//        return countAllowance() + this.expense1;
+//    }
+        
     
 }

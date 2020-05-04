@@ -45,8 +45,4 @@ public class User {
         return this.forename;
     }
 
-    public String toString() {
-        return this.id + " " + this.surname + " " + this.forename + ", " + this.username;
-    }
-
 }

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.Month;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,7 +40,8 @@ public class TravelExpensesAppTest {
         this.userdao = new DatabaseUserDao();
         this.billdao = new DatabaseBillDao();
         this.application = new TravelExpensesApp(userdao, billdao);
-        this.testbill = new Bill("Oxford", LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5));
+        this.testbill = new Bill(1, "Oxford", LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5),
+            157.8, 138.0);
     }
 
     @Test
@@ -80,6 +82,71 @@ public class TravelExpensesAppTest {
         application.deleteUser(user);
         boolean success = application.login(user.getUsername());
         assertEquals(false, success);
+    }
+    
+//    @Test
+//    public void logout() {
+//        currentUser = null;
+//    }
+    
+    @Test 
+    public void checkDateReturnsTrueWhenDateIsOk() {
+        String date = "2019-12-05";
+        boolean success = application.checkDate(date);
+        assertEquals(true, success);
+    }
+    
+    @Test
+    public void checkDateReturnsFalseWhenNumberOfPartsIsNotThree() {
+        String date = "2019-08";
+        boolean success = application.checkDate(date);
+        assertEquals(false, success);
+    }
+    
+    @Test 
+    public void checkDateReturnsFalseWhenYearIsWrong() {
+        String date = "2021-12-05";
+        boolean success = application.checkDate(date);
+        assertEquals(false, success);
+    }
+    
+    @Test 
+    public void checkDateReturnsFalseWhenMonthIsWrong() {
+        String date = "2019-13-05";
+        boolean success = application.checkDate(date);
+        assertEquals(false, success);
+    }
+    
+    @Test 
+    public void checkDateReturnsFalseWhenDayIsWrong() {
+        String date = "2019-12-32";
+        boolean success = application.checkDate(date);
+        assertEquals(false, success);
+    }
+    
+    @Test
+    public void convertDateReturnsCorrectDate() {
+        String dateString = "2020-01-05";
+        LocalDate date = application.convertDate("2020-01-05");
+        assertEquals(LocalDate.of(2020, 1, 5), date);
+    }
+    
+    @Test
+    public void getAllowanceReturnsCorrectAllowanceHome() {
+        LocalDate beginDate = LocalDate.of(2020, 1, 5);
+        LocalDate endDate = LocalDate.of(2020, 1, 8);
+        boolean abroad = false;
+        double allowance = application.getAllowance(beginDate, endDate, abroad);
+        assertEquals(103.5, allowance, 0.001);
+    }
+    
+    @Test
+    public void getAllowanceReturnsCorrectAllowanceAbroad() {
+        LocalDate beginDate = LocalDate.of(2020, 1, 5);
+        LocalDate endDate = LocalDate.of(2020, 1, 8);
+        boolean abroad = true;
+        double allowance = application.getAllowance(beginDate, endDate, abroad);
+        assertEquals(135.6, allowance, 0.001);
     }
 
 }

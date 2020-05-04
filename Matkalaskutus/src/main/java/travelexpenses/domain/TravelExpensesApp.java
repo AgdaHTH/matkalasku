@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,7 +36,7 @@ public class TravelExpensesApp {
         this.connection = DriverManager.getConnection("jdbc:sqlite:travelexpenses.db");
         this.userdao = userdao;
         this.billdao = billdao;
-        createDatabase();
+        //createDatabase();
     }
 
     /**
@@ -150,8 +151,60 @@ public class TravelExpensesApp {
      * @param end Matkan loppupäivämäärä
      * @return Palauttaa päivärahan määrän.
      */
-    public double getAllowance(LocalDate beginning, LocalDate end) {
-        Allowance allowance = new Allowance(beginning, end);
+    public double getAllowance(LocalDate beginning, LocalDate end, boolean abroad) {
+        Allowance allowance = new Allowance(beginning, end, abroad);
         return allowance.countAllowance();
+    }
+
+    /**
+     * Metodi muuntaa String-muodossa olevan parametrin LocalDate-tyypin päivämääräksi.
+     * @param date "YYYY-MM-DD" muodossa oleva päivämäärää ilmaiseva merkkijono
+     * @return LocalDate-tyyppinen päivämäärä
+     */
+    public LocalDate convertDate(String date) {
+        String[] parts = date.split("-");
+        int year = Integer.valueOf(parts[0]);
+        int month = Integer.valueOf(parts[1]);
+        int day = Integer.valueOf(parts[2]);
+        LocalDate convertedDate = LocalDate.of(year, month, day);
+        return convertedDate;
+    }
+    
+    /**
+     * Metodi tarkastaa, onko parametrina annettu päivämäärä oikeanmuotoinen.
+     * Vuoden tulee olla välillä 1900-kuluva vuosi, kuukausien muodossa 01, 02, ..., 12
+     * ja päivien muodossa 01, 02, ..., 31. Metodi ei tarkasta onko päivämää mahdollinen, 
+     * esimerkiksi kuukausien päivien lukumäärä tai karkausvuosi. Metodi tarkastaa, että
+     * parametrina annettu päivämäärä voidaan pilkkoa "-" merkin kohdalta kolmeen osaan. 
+     * @param date Muotoa YYYY-MM-DD oleva päivämäärä
+     * @return Onko päivämäärä oikeassa muodossa.
+     */
+    
+    public boolean checkDate(String date) {
+        String[] parts = date.split("-");
+        
+        int year = Integer.valueOf(parts[0]);
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        
+        if (parts.length != 3) {
+            return false;
+        }
+        
+        if (year < 1900 || year > currentYear) {
+            return false;
+        } 
+        
+        String month = parts[1];        
+        if (!month.matches("0[1-9]{1}|1[012]{1}")) {
+            return false;
+        }
+        
+        String day = parts[2];
+        if (!day.matches("0[1-9]{1}|1[0-9]{1}|2[0-9]{1}|30|31")) {
+            return false;
+        }
+        
+        return true;
+                
     }
 }

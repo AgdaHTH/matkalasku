@@ -13,6 +13,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -40,6 +41,8 @@ public class GraphicalUI extends Application {
     private Scene expensesScene;
     private Scene logoutScene;
     private double allowance;
+    private LocalDate beginning;
+    private LocalDate end;
     //private User currentUser;
 
     /**
@@ -141,7 +144,7 @@ public class GraphicalUI extends Application {
             String forename = newForenameInput.getText();
             User user = new User(surname, forename, username);
 
-            if (username.length() == 2 || surname.length() < 2) { //MUUTA
+            if (username.length() == 2 || surname.length() < 2) {
                 userCreationMessage.setText("Username or name too short");
                 userCreationMessage.setTextFill(Color.RED);
             } else {
@@ -164,51 +167,68 @@ public class GraphicalUI extends Application {
                 newForenamePane, createNewUserButton);
         newUserScene = new Scene(newUserPane, 300, 250);
 
-        // uuden laskun luominen
-        VBox newBillPane = new VBox(15);
-        TextField destinationInput = new TextField();
-        TextField startDateInput = new TextField();
-        TextField endDateInput = new TextField();
-        TextField expenses1Input = new TextField();
-
-        Label loggedinLabel = new Label();
+        // uuden laskun luominen 
+        //Label loggedinLabel = new Label();
         //loggedinLabel.setText("logged in: " + currentUser.getUsername());
+        VBox newBillPane = new VBox(15);
+
+        HBox destination = new HBox(10);
         Label destinationLabel = new Label("Destination:");
+        TextField destinationInput = new TextField();
+        destination.getChildren().addAll(destinationLabel, destinationInput);
+
         Label startDateLabel = new Label("Start date (YYYY-MM-DD):");
         Label endDateLabel = new Label("End date (YYYY-MM-DD):");
-        Label expensesLabel = new Label("Expenses:");
-        ChoiceBox<String> expense1box = new ChoiceBox();
-        expense1box.getItems().addAll("Flights", "Hotel", "Other");
-        expense1box.setValue("Flights");
+        TextField startDateInput = new TextField();
+        TextField endDateInput = new TextField();
+
+        HBox allowancePane = new HBox(10);
         Label allowanceLabel = new Label("Allowance:");
         Label allowanceCountedLabel = new Label();
         //Label abroadLabel = new Label();
+        CheckBox abroadBox = new CheckBox("Destination is abroad");
+        abroadBox.setIndeterminate(false);
 
+        Label wrongDate = new Label();
         Button countAllowanceButton = new Button("Count allowance");
+        allowancePane.getChildren().addAll(countAllowanceButton, allowanceLabel,
+                allowanceCountedLabel);
+
+        Label expensesLabel = new Label("Expenses:");
+        HBox expensesPane = new HBox(10);
+        ChoiceBox<String> expense1Box = new ChoiceBox();
+        expense1Box.getItems().addAll("Flights", "Hotel", "Other");
+        expense1Box.setValue("Flights");
+        TextField expenses1Input = new TextField();
+        expensesPane.getChildren().addAll(expense1Box, expenses1Input);
         Button createBillButton = new Button("Create a travel expenses statement");
+
         newBillPane.setPadding(new Insets(20));
-        newBillPane.getChildren().addAll(loggedinLabel, destinationLabel, destinationInput, startDateLabel, startDateInput,
-                endDateLabel, endDateInput, expensesLabel, expense1box, expenses1Input,
-                countAllowanceButton, allowanceLabel, allowanceCountedLabel, createBillButton);
+        newBillPane.getChildren().addAll(destination, abroadBox, startDateLabel, startDateInput,
+                endDateLabel, endDateInput, wrongDate, allowancePane, expensesLabel, expensesPane,
+                 createBillButton);
 
         countAllowanceButton.setOnAction(e -> {
+            wrongDate.setText("");
             String newStartDate = startDateInput.getText();
             String newEndDate = endDateInput.getText();
 
-            String[] parts1 = newStartDate.split("-");
-            int year1 = Integer.valueOf(parts1[0]);
-            int month1 = Integer.valueOf(parts1[1]);
-            int day1 = Integer.valueOf(parts1[2]);
-            LocalDate beginning = LocalDate.of(year1, month1, day1);
+            //tarkistus onko muoto oikea
+            if (this.application.checkDate(newStartDate) && this.application.checkDate(newEndDate)) {
+                beginning = this.application.convertDate(newStartDate);
+                end = this.application.convertDate(newEndDate);
+                
+                boolean abroad = abroadBox.isSelected();
+                
+                allowance = this.application.getAllowance(beginning, end, abroad);
+                allowanceCountedLabel.setText(String.valueOf(allowance));
 
-            String[] parts2 = newEndDate.split("-");
-            int year2 = Integer.valueOf(parts2[0]);
-            int month2 = Integer.valueOf(parts2[1]);
-            int day2 = Integer.valueOf(parts2[2]);
-            LocalDate end = LocalDate.of(year2, month2, day2);
+            } else {
+                startDateInput.setText("");
+                endDateInput.setText("");
+                wrongDate.setText("Check the dates and try again!");
+            }
 
-            allowance = this.application.getAllowance(beginning, end);
-            allowanceCountedLabel.setText(String.valueOf(allowance));
         });
 
         createBillButton.setOnAction(e -> {
@@ -216,22 +236,14 @@ public class GraphicalUI extends Application {
             int userid = currentUser.getId();
             String newdestination = destinationInput.getText();
 
-            String newStartDate = startDateInput.getText();
-            String newEndDate = endDateInput.getText();
-
-            String[] parts1 = newStartDate.split("-");
-            int year1 = Integer.valueOf(parts1[0]);
-            int month1 = Integer.valueOf(parts1[1]);
-            int day1 = Integer.valueOf(parts1[2]);
-            LocalDate beginning = LocalDate.of(year1, month1, day1);
-
-            String[] parts2 = newEndDate.split("-");
-            int year2 = Integer.valueOf(parts2[0]);
-            int month2 = Integer.valueOf(parts2[1]);
-            int day2 = Integer.valueOf(parts2[2]);
-            LocalDate end = LocalDate.of(year2, month2, day2);
-
             Double expense1 = Double.valueOf(expenses1Input.getText());
+            String expense1Type = expense1Box.getValue();
+            //vaihtoehto 1: tee useampi expense ja summaa ne yhteen 
+            //yhdeksi reimbursement-summaksi, joka tietokantaan, ei tarvitse muuttaa
+            //tietokantaa eikä Billiä - tieto boxeista jää silti käyttämättä
+            //vaihtoehto 2: ohjaa kulu boxin perusteella tiettyyn tietokannan sarakkeeseen
+            //mutta miten tieto sarakkeesta kulkee sinne asti?
+            
             Bill bill = new Bill(userid, newdestination, beginning, end, expense1, allowance);
             if (this.application.addBill(bill)) {
                 primaryStage.setScene(logoutScene);
@@ -240,6 +252,7 @@ public class GraphicalUI extends Application {
         });
 
         VBox logoutPane = new VBox(10);
+        logoutPane.setPadding(new Insets(10));
         Label billCreatedMessage = new Label("The travel statement was created succesfully!");
         Button logoutButton = new Button("Logout");
         Label closeWindowLabel = new Label("");
@@ -247,10 +260,10 @@ public class GraphicalUI extends Application {
 
         logoutButton.setOnAction(e -> {
             application.logout();
-            closeWindowLabel.setText("You can now close this window");
+            closeWindowLabel.setText("You can now close this window.");
         });
 
-        expensesScene = new Scene(newBillPane);
+        expensesScene = new Scene(newBillPane, 300, 600);
         logoutScene = new Scene(logoutPane, 300, 250);
 
         primaryStage.setTitle("Travel expenses");

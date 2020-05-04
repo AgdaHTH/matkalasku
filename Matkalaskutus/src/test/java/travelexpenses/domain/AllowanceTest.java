@@ -27,7 +27,7 @@ public class AllowanceTest {
     
     @Before
     public void setUp() {
-        allowance = new Allowance(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5));
+        allowance = new Allowance(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5), false);
     }
     
     @Test
@@ -39,6 +39,10 @@ public class AllowanceTest {
     @Test
     public void countAllowanceCountsAllowanceCorrectlyHome(){
         assertEquals(138.0, allowance.countAllowance(), 0.001);
-    }               
+    } 
+    
+    public void countAllowanceCountsAllowanceCorrectlyAbroad(){
+        assertEquals(180.8, allowance.countAllowance(), 0.001);
+    }  
     
 }

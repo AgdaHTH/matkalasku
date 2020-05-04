@@ -18,9 +18,9 @@ public class Allowance {
     private LocalDate end;
     private boolean abroad;
 
-    public Allowance(LocalDate beginning, LocalDate end) {
+    public Allowance(LocalDate beginning, LocalDate end, boolean abroad) {
 
-        this.abroad = false;
+        this.abroad = abroad;
         this.beginning = beginning;
         this.end = end;
     }
@@ -39,25 +39,36 @@ public class Allowance {
      * @return Palauttaa päivien määrän long-tyypin lukuna.
      */
     public long countDays() {
-        long days = ChronoUnit.DAYS.between(this.beginning, this.end);
-        //ehkä return days + 1        
+        long days = ChronoUnit.DAYS.between(this.beginning, this.end);      
         return days;
     }
 
     /**
-     * Metodi laskee päivärahan määrän matkan keston ja matkakohteen (kotimaassa
-     * vai ulkomailla) perusteella.
+     * Metodi laskee päivärahan kokonaismäärän matkan keston perusteella.
      *
-     * @return Palauttaa päivärahan määrän.
+     * @return Palauttaa päivärahan kokonaismäärän.
      */
     public double countAllowance() {
         long days = this.countDays();
+        double sumAllowance = days * this.getAllowance();
+        
+        return sumAllowance;
+    }
+    
+    /**
+     * Metodi palauttaa päivärahan päiväkohtaisen määrän riippuen siitä, onko matkakohde 
+     * kotimaassa vai ulkomailla.
+     * @return Päivärahan määrä päivässä.
+     */
+    public double getAllowance() {
         double allowance = 34.5;
         if (this.abroad == true) {
             allowance = 45.2;
         }
-        double sumAllowance = days * allowance;
-        return sumAllowance;
+        
+        return allowance;
     }
+    
+    
 
 }
