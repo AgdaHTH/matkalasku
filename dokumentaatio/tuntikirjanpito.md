@@ -46,5 +46,16 @@
 |       |        | arkkitehtuurikuvauksen ja käyttöohjeen sekä päivitin vaatimusmäärittelyn ja readmen.|
 |       |        | Testikattavuusraportti antoi aiemmin yli 60% mutta nyt lopuksi ajaessani sen tuli ihan muita|
 |       |        | tuloksia, ja varoituksia että jokin ei täsmää. Löysin onneksi telegramista vinkin: clean&build.|
-| Yht.  | 49.5   |
+| 4.5   |    7   | Muutin Bill-luokan ja käyttöliittymän vastaamaan Allowance-luokkaan siirrettyjä 
+|       |        | päivärahankäsittelytoimintoja.|
+|       |        | Siirsin päivämäärien konvertoinnin käyttöliittymästä sovelluslogiikkaan.| 
+|       |        | Lisäsin päivämääräsyötteiden validoinnin sovelluslogiikkaan. Paransin expenses-ikkunan |
+|       |        | ulkonäköä. Lisäsin checkboxin jossa määritellään matkakohteen sijainti kotimaassa tai |
+|       |        | ulkomailla, ja lisäsin tämän tiedon myös osaksi Allowance-luokkaa ja päivärahan laskemista.| 
+|       |        | Kirjoitin uusille  metodeille JavaDocit ja testit.|
+|       |        | Tarkastin testikattavuuden ja checkstylen. Pohdin, mitä teen matkakulujen syöttämiselle|
+|       |        | ja tallennukselle ja onko niille mitään sellaista enää tehtävissä, mikä olisi järkevää.
+|       |        | 
+|       |        |
+| Yht.  | 56.5   |
 
