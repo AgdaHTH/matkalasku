@@ -4,7 +4,7 @@
 Sovellus käynnistyy näkymään, jossa käyttäjä valitsee, haluaako hän alustaa 
 tietokannan vai ei. 
 
-![database scene](databaseScene.png)
+![database scene](databaseScene.PNG)
 
 ### Kirjautuminen
 
@@ -12,14 +12,14 @@ Seuraavaksi avautuu kirjautumisnäkymä. Käyttäjällä on mahdollisuus
 joko luoda itselleen käyttäjätunnus, tai jos jos hänelle jo on sellainen,
 kirjautua sisään sovellukseen.
 
-![login scene](loginScene.png)
+![login scene](loginScene.PNG)
 
 ### Uuden käyttäjän luominen
 Jos käyttäjä on uusi, hän siis valitsee napin ´Create a new user´. Avautuu
 uusi ikkuna, johon käyttäjä syöttää valitsemansa käyttäjätunnuksen
 sekä oman suku- ja etunimensä. 
 
-![new user](new_user.png)
+![new user](new_user.PNG)
 
 Painettuaan ´Create´ nappia käyttäjälle avautuu uudestaan
 sisäänkirjautumisnäkymä, jossa ilmoitetaan käyttäjäntunnuksen luomisen
