@@ -64,10 +64,10 @@
 |       |        | ja siirsin createDatabase-luokan toiminnallisuuden sovelluslogiikkan metodiin, jota|
 |       |        | kutsutaan jos käyttöliittymässä valitaan tietokannan alustaminen. Kirjoitin muutaman testin|
 |       |        | lisää ja jatkoin arkkitehtuurin kuvaamista.
-| 7.5   |   ?    | Täydensin arkkitehtuuridokumentaatiota lisäkaavioilla ja sanallisilla selityksillä, tarkensin 
+| 7.5   |   4    | Täydensin arkkitehtuuridokumentaatiota lisäkaavioilla ja sanallisilla selityksillä, tarkensin 
 |       |        | käyttöohjetta ja lisäsin siihen useita kuvakaappauksia. Aloitin testausdokumentin
-|       |        | kirjoittamisen.
+|       |        | kirjoittamisen ja tallensin testikattavuusraportin jacocon sivuilta. 
 |       |        | 
-|       |        | 
-| Yht.  | 65.5   |
+|       |        | testdok. loppuun, vaatimusmäärittely, readme, tarkistukset, release
+| Yht.  | 69.5   | tarkista tuntien yhteenlasku!
 

@@ -3,12 +3,8 @@
 Sovelluksen avulla on mahdollista pitää kirjaa matkalaskuista. Sovellusta voi käyttää useampi rekisteröitynyt 
 käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
-## NB viikko 6
-
-Päivärahan laskemistoiminallisuuden siirtäminen omaan luokkaansa on kesken ja tämän vuoksi
-käyttöliittymässä sekä Bill- ja Allowance -luokissa (ja niiden testiluokissa) on toisteista koodia.
-
 ## Dokumentaatio
+
 [Käyttöohje](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/kayttoohje.md)
 
 [Vaatimusmäärittely](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/vaatimusmaarittely.md)
@@ -20,9 +16,7 @@ käyttöliittymässä sekä Bill- ja Allowance -luokissa (ja niiden testiluokiss
 
 ## Tietokannan alustaminen
 
-Ohjelma alustaa käyttämänsä tietokannan kutsumalla luokan travelexpenses.domain.TravelExpensesApp 
-konstruktorissa samassa luokassa olevaa metodia createDatabase(), joka alustaa tietokannan.
-Metodia createDatabase() ei tarvitse kutsua sen jälkeen kun tietokanta on luotu.
+Ohjelma kysyy alussa käyttäjältä, haluaako tämä luoda tietokannan.
 
 ## Releaset
 

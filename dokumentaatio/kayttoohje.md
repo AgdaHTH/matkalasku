@@ -25,23 +25,23 @@ Painettuaan ´Create´ nappia käyttäjälle avautuu uudestaan
 sisäänkirjautumisnäkymä, jossa ilmoitetaan käyttäjäntunnuksen luomisen
 onnistumisesta. 
 
-![user created](user_created.png)
+![user created](user_created.PNG)
 
 Käyttäjätunnuksen tulee olla uniikki, joten jos käyttäjä syöttää jo käytössä
 olevan tunnuksen, ohjelma ilmoittaa, että tunnus on jo käytössä:
 
-![username unique](unique.png)
+![username unique](unique.PNG)
 
 ### Sisäänkirjautuminen
 Kirjautuakseen sisään käyttäjän tulee kirjoittaa käyttäjänimensä kenttään
 ´username´. Jos kirjautuminen ei onnistu, sovellus ilmoittaa tästä: "Username was not found". 
 
-![username not found](username_not_found.png)
+![username not found](username_not_found.PNG)
 
 Jos kirjautuminen onnistuu, avautuu seuraavaksi näkymä, johon täytetään matkalaskussa tarvittavat 
 tiedot. 
 
-![expenses scene](expensesScene_filled.png)
+![expenses scene](expensesScene_filled.PNG)
 
 ### Matkalaskun tietojen syöttäminen
 * Destination: paikkakunta, johon matka (pääasiallisesti) suuntautui
@@ -56,11 +56,11 @@ tiedot.
 Päivärahan laskeminen tarkistaa samalla päivämääräsyötteet. Jos ne eivät kelpaa,
 sovellus ilmoittaa tästä ja kehottaa yrittämään uudestaan.
 
-![check the dates](check_dates.png)
+![check the dates](check_dates.PNG)
 
 ### Lopetus ja uloskirjautuminen
 
-![logout scene](logoutScene.png)
+![logout scene](logoutScene.PNG)
 
 Kun lasku on syötetty, avautuu lopetusnäkymä, jossa ilmoitetaan, että matkalaskun 
 tallennus onnistui ja pyydetään käyttäjää kirjautumaan ulos sovelluksesta.
