@@ -64,7 +64,10 @@
 |       |        | ja siirsin createDatabase-luokan toiminnallisuuden sovelluslogiikkan metodiin, jota|
 |       |        | kutsutaan jos käyttöliittymässä valitaan tietokannan alustaminen. Kirjoitin muutaman testin|
 |       |        | lisää ja jatkoin arkkitehtuurin kuvaamista.
-| 7.5   |   ?    | 
+| 7.5   |   ?    | Täydensin arkkitehtuuridokumentaatiota lisäkaavioilla ja sanallisilla selityksillä, tarkensin 
+|       |        | käyttöohjetta ja lisäsin siihen useita kuvakaappauksia. Aloitin testausdokumentin
+|       |        | kirjoittamisen.
+|       |        | 
 |       |        | 
 | Yht.  | 65.5   |
 
