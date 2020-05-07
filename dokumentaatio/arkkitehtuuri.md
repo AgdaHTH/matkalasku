@@ -70,7 +70,7 @@ ja luo taulut uudestaan.
 
 Allaolevissa kaavioissa on kuvattu tärkeimpien metodien toiminta.
 
-Uuden käyttäjän luominen:
+#### Uuden käyttäjän luominen:
 
 ![create user sequence](creating_user.png)
 
@@ -81,7 +81,7 @@ joka ilmoittaa onnistuneesta rekisteröitymisestä käyttäjälle. Jos lista ei 
 on jo kyseinen käyttäjänimi, createUser palauttaa false ja käyttöliittymä ilmoittaa käyttäjälle, että
 käyttäjänimi on jo käytössä (Username has to be unique).
 
-Sisäänkirjautuminen:
+#### Sisäänkirjautuminen:
 
 ![login sequence](login.png)
 
@@ -91,7 +91,7 @@ käyttäjistä (User), ja sovelluslogiikka tarkistaa, onko koko yksi. Mikäli on
 currentUser-oliomuuttujan arvoksi ja palauttaa true käyttöliittymälle, joka avaa ExpensesScene-näkymän 
 käyttäjälle.
  
-Päivärahan laskeminen:
+#### Päivärahan laskeminen:
 
 ![count allowance sequence](count_allowance.png)
 
@@ -104,9 +104,14 @@ asettaa nämä käyttöliittymän oliomuuttujien arvoiksi ja kutsuu sovelluslogi
 parametreinaan päivämäärät sekä abroad-checkboxin arvo (true jos matkakohde ulkomailla). 
 Sovelluslogiikka palauttaa päivärahan arvon, jonka käyttöliittymä tallettaa oliomuuttujan arvoksi.
 
-Uuden matkalaskun luominen:
+#### Uuden matkalaskun luominen:
 
 ![create bill sequence](creating_bill.png)
+
+Kun käyttöliittymällä on tiedossa päivämäärät ja päivärahan määrä, se pytää sovelluslogiikalta tiedon kirjautuneesta
+käyttäjästä (getCurrentUser). Näillä tiedoilla käyttöliittymä kutsuu sovelluslogiikan metodia addBill, joka
+kutsuu BillDaon metodia create. Tämän jälkeen sovelluslogiikka tiedottaa käyttöliittymää, joka 
+avaa lougout-näkymän.
 
 
 ### Heikkoudet
@@ -117,10 +122,17 @@ kahdessa kohdassa. Päivämäärät ja niiden sekä matkakohteen sijainnin perus
 ovat nyt oliomuuttujina käyttöliittymäluokassa, mikä ei ole optimaalista. Päivärahan laskeminen olisi
 paras toteuttaa sovelluslogiikan kautta.
 
+Virheimoitukset eivät ole kaikkialla kuvaavia, esimerkiksi päivämäärien tarkistuksessa ei
+kerrota mikä niissä on vikana.
+
 Lisäksi käyttöliittymän rakenne on nyt yhdessä pitkässä start-metodissa. Se olisi pitänyt jakaa
 useampaan luokkaan, jotka olisivat huolehtineet eri näkymistä.
 
+Jos tietokantaa ei ole olemassa mutta käyttäjä valitsee ettei halua luoda sitä, sovellus kaatuu.
+
 SQL-Exceptionit käsitellään nyt pääasiassa sovelluslogiikassa.
+
+
 
 
  

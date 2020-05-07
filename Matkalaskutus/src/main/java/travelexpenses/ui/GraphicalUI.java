@@ -73,13 +73,14 @@ public class GraphicalUI extends Application {
         
         Label questionLabel = new Label("Do you want to format or create the database?");
         Label warningLabel = new Label("All information in a previous database will be lost!");
+        Label warningLabel2 = new Label("Choose no only if the database already exists!");
         Button createDabataseButton = new Button("Yes");
         Button noButton = new Button("No");
         HBox buttonBox = new HBox(10);
         buttonBox.getChildren().addAll(createDabataseButton, noButton);
         VBox databasePane = new VBox(10);
         databasePane.setPadding(new Insets(10));
-        databasePane.getChildren().addAll(questionLabel, warningLabel, buttonBox);
+        databasePane.getChildren().addAll(questionLabel, warningLabel, warningLabel2, buttonBox);
         
         createDabataseButton.setOnAction(e->{
             application.createDatabase();
