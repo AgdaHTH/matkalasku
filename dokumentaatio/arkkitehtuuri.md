@@ -70,25 +70,44 @@ ja luo taulut uudestaan.
 
 Allaolevissa kaavioissa on kuvattu tärkeimpien metodien toiminta.
 
-NB Lisää selittävää tekstiä näiden alle!
-
 Uuden käyttäjän luominen:
 
 ![create user sequence](creating_user.png)
 
-HUOMAA LISÄTTY TARKISTUS ETTÄ käyttäjänimeä ei jo ole vaikuttaako?
+Käyttöliittymä kutsuu sovelluslogiikan metodia createUser, joka kutsuu ensin UserDaon metodia read,
+parametrina käyttäjän syöttämä käyttäjänimi. UserDao palauttaa SQL-kyselyn tuloksen listana. Jos lista
+on tyhjä, createUser kutsuu UserDaon metodia create ja tämän jälkeen palauttaa true käyttöliittymään, 
+joka ilmoittaa onnistuneesta rekisteröitymisestä käyttäjälle. Jos lista ei ole tyhjä, eli tietokannassa
+on jo kyseinen käyttäjänimi, createUser palauttaa false ja käyttöliittymä ilmoittaa käyttäjälle, että
+käyttäjänimi on jo käytössä (Username has to be unique).
 
 Sisäänkirjautuminen:
 
-LISÄÄ
+![login sequence](login.png)
+
+Käyttäjän kirjautuessa sisään, käyttöliittymän kutsuu sovelluslogiikan metodia login, joka kutsuu edelleen
+UserDaon metodia read, parametrina käyttäjän käyttäjänimi. Tämä metodi palauttaa listan hakuehdon täyttävistä
+käyttäjistä (User), ja sovelluslogiikka tarkistaa, onko koko yksi. Mikäli on, login-metodi asettaa käyttäjän
+currentUser-oliomuuttujan arvoksi ja palauttaa true käyttöliittymälle, joka avaa ExpensesScene-näkymän 
+käyttäjälle.
  
+Päivärahan laskeminen:
+
+![count allowance sequence](count_allowance.png)
+
+Käyttäjän painaessa käyttöliittymässä nappia "Count allowance", käyttöliittymä kutsuu ensin 
+sovelluslogiikan metodeja checkDate ja checkBeginDateIsNotAfterEndDate. Metodi checkDate tarkistaa, 
+että päivämäärä on syötetty oikeassa muodossa, että se on mahdollinen päivämäärä ja että matkan 
+alkupäivämäärä ei ole loppupäivämäärän jälkeen. Jos nämä tarkistukset menevät läpi, käyttöliittymä
+kutsuu sovelluslogiikan metodia convertDate, joka muuntaa päivämäärät LocalDate-muotoisiksi, 
+asettaa nämä käyttöliittymän oliomuuttujien arvoiksi ja kutsuu sovelluslogiikan metodia getAllowance
+parametreinaan päivämäärät sekä abroad-checkboxin arvo (true jos matkakohde ulkomailla). 
+Sovelluslogiikka palauttaa päivärahan arvon, jonka käyttöliittymä tallettaa oliomuuttujan arvoksi.
+
 Uuden matkalaskun luominen:
 
 ![create bill sequence](creating_bill.png)
 
-Päivämäärän konvertointi ja tarkistus: //ehkä päivärahan laskeminen mieluummin
-
-LISÄÄ
 
 ### Heikkoudet
 
@@ -100,6 +119,8 @@ paras toteuttaa sovelluslogiikan kautta.
 
 Lisäksi käyttöliittymän rakenne on nyt yhdessä pitkässä start-metodissa. Se olisi pitänyt jakaa
 useampaan luokkaan, jotka olisivat huolehtineet eri näkymistä.
+
+SQL-Exceptionit käsitellään nyt pääasiassa sovelluslogiikassa.
 
 
  

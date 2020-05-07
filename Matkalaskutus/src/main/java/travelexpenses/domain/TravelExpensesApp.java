@@ -68,7 +68,9 @@ public class TravelExpensesApp {
 
     /**
      * Metodi tarkastaa, löytyykö käyttäjänimi tietokannasta.
-     *
+     * Jos löytyy, käyttäjänimeen liittyvä käyttäjä asetetaan
+     * oliomuuttujan currentUser arvoksi.
+     * 
      * @param username Käyttäjän käyttäjänimi
      * @return Onnistuiko kirjautuminen.
      */
