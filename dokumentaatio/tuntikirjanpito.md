@@ -55,7 +55,16 @@
 |       |        | Kirjoitin uusille  metodeille JavaDocit ja testit.|
 |       |        | Tarkastin testikattavuuden ja checkstylen. Pohdin, mitä teen matkakulujen syöttämiselle|
 |       |        | ja tallennukselle ja onko niille mitään sellaista enää tehtävissä, mikä olisi järkevää.
+| 5.5.  |   6    | Kirjoitin arkkitehtuurin kuvausta, laadin uuden pakkauskaavion ja tein tietokantakaavion.|
+|       |        | Lisäsin päivämäärän tarkistukseen metodin, joka tarkistaa, että alkupvm ei ole myöhäisempi|
+|       |        | kuin loppupvm. Yritin saada kirjautuneen käyttäjän käyttäjänimeä näkymään laskun syöttöruudussa,|
+|       |        | mutta en onnistunut. Lisäsin sovelluslogiikkaan metodin, joka uutta käyttäjää luotaessa| 
+|       |        | tarkistaa, onko käyttäjänimi jo olemassa.
+| 6.5.  |   3    | Lisäsin käyttöliittymään uuden aloitusnäkymän, jossa kysytään, alustetaanko tietokanta, ja|
+|       |        | ja siirsin createDatabase-luokan toiminnallisuuden sovelluslogiikkan metodiin, jota|
+|       |        | kutsutaan jos käyttöliittymässä valitaan tietokannan alustaminen. Kirjoitin muutaman testin|
+|       |        | lisää ja jatkoin arkkitehtuurin kuvaamista.
+| 7.5   |   ?    | 
 |       |        | 
-|       |        |
-| Yht.  | 56.5   |
+| Yht.  | 65.5   |
 

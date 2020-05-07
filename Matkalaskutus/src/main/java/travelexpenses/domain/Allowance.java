@@ -50,7 +50,7 @@ public class Allowance {
      */
     public double countAllowance() {
         long days = this.countDays();
-        double sumAllowance = days * this.getAllowance();
+        double sumAllowance = days * this.allowanceAmount();
         
         return sumAllowance;
     }
@@ -60,7 +60,7 @@ public class Allowance {
      * kotimaassa vai ulkomailla.
      * @return Päivärahan määrä päivässä.
      */
-    public double getAllowance() {
+    public double allowanceAmount() {
         double allowance = 34.5;
         if (this.abroad == true) {
             allowance = 45.2;

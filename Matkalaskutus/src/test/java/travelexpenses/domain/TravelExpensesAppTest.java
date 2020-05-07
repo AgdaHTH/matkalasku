@@ -51,6 +51,17 @@ public class TravelExpensesAppTest {
         assertEquals(true, success);
         application.deleteUser(user);
     }
+    
+    @Test
+    public void userIsNotCreated() throws SQLException {
+        User user = new User("Kepa", "Keppinen", "keppi");
+        application.createUser(user);
+        User anotherUser = new User("Keppo", "Kepponen", "keppi");
+        boolean success = application.createUser(anotherUser);
+        assertEquals(false, success);
+        application.deleteUser(user);
+        application.deleteUser(anotherUser);
+    }   
 
     @Test
     public void billIsCreated() throws SQLException {
@@ -83,11 +94,6 @@ public class TravelExpensesAppTest {
         boolean success = application.login(user.getUsername());
         assertEquals(false, success);
     }
-    
-//    @Test
-//    public void logout() {
-//        currentUser = null;
-//    }
     
     @Test 
     public void checkDateReturnsTrueWhenDateIsOk() {
@@ -129,6 +135,14 @@ public class TravelExpensesAppTest {
         String dateString = "2020-01-05";
         LocalDate date = application.convertDate("2020-01-05");
         assertEquals(LocalDate.of(2020, 1, 5), date);
+    }
+    
+    @Test
+    public void checkBeginDateIsNotAfterEndDateWorks() {
+        String beginDate = "2020-01-05";
+        String endDate ="2020-01-04";
+        boolean success = application.checkBeginDateIsNotAfterEndDate(beginDate, endDate);
+        assertEquals(true, success);
     }
     
     @Test

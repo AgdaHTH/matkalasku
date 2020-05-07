@@ -21,11 +21,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import travelexpenses.dao.CreateDatabase;
 import travelexpenses.dao.DatabaseBillDao;
 import travelexpenses.dao.DatabaseUserDao;
 import travelexpenses.domain.Bill;
-
+import travelexpenses.domain.Allowance;
 import travelexpenses.domain.TravelExpensesApp;
 import travelexpenses.domain.User;
 
@@ -40,9 +39,11 @@ public class GraphicalUI extends Application {
     private Scene newUserScene;
     private Scene expensesScene;
     private Scene logoutScene;
+    private Scene initialScene;
     private double allowance;
     private LocalDate beginning;
     private LocalDate end;
+    
     //private User currentUser;
 
     /**
@@ -69,6 +70,26 @@ public class GraphicalUI extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws SQLException {
+        
+        Label questionLabel = new Label("Do you want to format or create the database?");
+        Label warningLabel = new Label("All information in a previous database will be lost!");
+        Button createDabataseButton = new Button("Yes");
+        Button noButton = new Button("No");
+        HBox buttonBox = new HBox(10);
+        buttonBox.getChildren().addAll(createDabataseButton, noButton);
+        VBox databasePane = new VBox(10);
+        databasePane.setPadding(new Insets(10));
+        databasePane.getChildren().addAll(questionLabel, warningLabel, buttonBox);
+        
+        createDabataseButton.setOnAction(e->{
+            application.createDatabase();
+            primaryStage.setScene(loginScene); 
+        });
+        
+        noButton.setOnAction(e->{
+            primaryStage.setScene(loginScene); 
+        });
+                
         Label welcome = new Label("Welcome! Please login or create a new user:");
         VBox loginPane = new VBox(10);
         HBox inputPane = new HBox(10);
@@ -87,13 +108,12 @@ public class GraphicalUI extends Application {
                 createUserButton);
 
         loginButton.setOnAction(e -> {
-
             String username = usernameInput.getText();
-
+                        
             if (application.login(username)) {
                 loginMessage.setText("");
-                primaryStage.setScene(expensesScene);
-                usernameInput.setText("");
+                usernameInput.setText("");                                 
+                primaryStage.setScene(expensesScene);                
             } else {
                 usernameInput.setText("");
                 loginMessage.setText("Username not found!");
@@ -107,7 +127,7 @@ public class GraphicalUI extends Application {
 
         //uuden käyttäjän luominen
         VBox newUserPane = new VBox(10);
-
+        
         HBox newUsernamePane = new HBox(10);
         newUsernamePane.setPadding(new Insets(10));
         TextField newUsernameInput = new TextField();
@@ -117,11 +137,9 @@ public class GraphicalUI extends Application {
 
         HBox newSurnamePane = new HBox(10);
         newSurnamePane.setPadding(new Insets(10));
-
         TextField newSurnameInput = new TextField();
         Label newSurnameLabel = new Label("Surname:");
         newSurnameLabel.setPrefWidth(100);
-
         newSurnamePane.getChildren().addAll(newSurnameLabel, newSurnameInput);
 
         HBox newForenamePane = new HBox(10);
@@ -129,11 +147,9 @@ public class GraphicalUI extends Application {
         TextField newForenameInput = new TextField();
         Label newForenameLabel = new Label("Forename:");
         newForenameLabel.setPrefWidth(100);
-
         newForenamePane.getChildren().addAll(newForenameLabel, newForenameInput);
 
         Label userCreationMessage = new Label();
-
         Button createNewUserButton = new Button("Create");
         createNewUserButton.setPadding(new Insets(10));
 
@@ -154,7 +170,7 @@ public class GraphicalUI extends Application {
                     loginMessage.setTextFill(Color.GREEN);
                     primaryStage.setScene(loginScene);
                 } else {
-                    userCreationMessage.setText("username has to be unique");
+                    userCreationMessage.setText("Username has to be unique");
                     userCreationMessage.setTextFill(Color.RED);
                 }
 
@@ -167,11 +183,8 @@ public class GraphicalUI extends Application {
                 newForenamePane, createNewUserButton);
         newUserScene = new Scene(newUserPane, 300, 250);
 
-        // uuden laskun luominen 
-        //Label loggedinLabel = new Label();
-        //loggedinLabel.setText("logged in: " + currentUser.getUsername());
-        VBox newBillPane = new VBox(15);
-
+        // uuden laskun luominen   
+        VBox newBillPane = new VBox(15);    
         HBox destination = new HBox(10);
         Label destinationLabel = new Label("Destination:");
         TextField destinationInput = new TextField();
@@ -185,7 +198,7 @@ public class GraphicalUI extends Application {
         HBox allowancePane = new HBox(10);
         Label allowanceLabel = new Label("Allowance:");
         Label allowanceCountedLabel = new Label();
-        //Label abroadLabel = new Label();
+
         CheckBox abroadBox = new CheckBox("Destination is abroad");
         abroadBox.setIndeterminate(false);
 
@@ -204,22 +217,24 @@ public class GraphicalUI extends Application {
         Button createBillButton = new Button("Create a travel expenses statement");
 
         newBillPane.setPadding(new Insets(20));
-        newBillPane.getChildren().addAll(destination, abroadBox, startDateLabel, startDateInput,
-                endDateLabel, endDateInput, wrongDate, allowancePane, expensesLabel, expensesPane,
-                 createBillButton);
+        newBillPane.getChildren().addAll(wrongDate, destination, abroadBox, startDateLabel, startDateInput,
+                endDateLabel, endDateInput, allowancePane, expensesLabel, expensesPane,
+                createBillButton);
 
         countAllowanceButton.setOnAction(e -> {
             wrongDate.setText("");
             String newStartDate = startDateInput.getText();
             String newEndDate = endDateInput.getText();
 
-            //tarkistus onko muoto oikea
-            if (this.application.checkDate(newStartDate) && this.application.checkDate(newEndDate)) {
+            //tarkistus onko muoto oikea ja että alkupvm ei ole ennen loppupvm
+            if (this.application.checkDate(newStartDate)
+                    && this.application.checkDate(newEndDate)
+                    && !this.application.checkBeginDateIsNotAfterEndDate(newStartDate, newEndDate)) {
+
                 beginning = this.application.convertDate(newStartDate);
                 end = this.application.convertDate(newEndDate);
-                
                 boolean abroad = abroadBox.isSelected();
-                
+
                 allowance = this.application.getAllowance(beginning, end, abroad);
                 allowanceCountedLabel.setText(String.valueOf(allowance));
 
@@ -227,6 +242,7 @@ public class GraphicalUI extends Application {
                 startDateInput.setText("");
                 endDateInput.setText("");
                 wrongDate.setText("Check the dates and try again!");
+                wrongDate.setTextFill(Color.RED);
             }
 
         });
@@ -237,13 +253,7 @@ public class GraphicalUI extends Application {
             String newdestination = destinationInput.getText();
 
             Double expense1 = Double.valueOf(expenses1Input.getText());
-            String expense1Type = expense1Box.getValue();
-            //vaihtoehto 1: tee useampi expense ja summaa ne yhteen 
-            //yhdeksi reimbursement-summaksi, joka tietokantaan, ei tarvitse muuttaa
-            //tietokantaa eikä Billiä - tieto boxeista jää silti käyttämättä
-            //vaihtoehto 2: ohjaa kulu boxin perusteella tiettyyn tietokannan sarakkeeseen
-            //mutta miten tieto sarakkeesta kulkee sinne asti?
-            
+                       
             Bill bill = new Bill(userid, newdestination, beginning, end, expense1, allowance);
             if (this.application.addBill(bill)) {
                 primaryStage.setScene(logoutScene);
@@ -254,6 +264,7 @@ public class GraphicalUI extends Application {
         VBox logoutPane = new VBox(10);
         logoutPane.setPadding(new Insets(10));
         Label billCreatedMessage = new Label("The travel statement was created succesfully!");
+        billCreatedMessage.setTextFill(Color.GREEN);
         Button logoutButton = new Button("Logout");
         Label closeWindowLabel = new Label("");
         logoutPane.getChildren().addAll(billCreatedMessage, logoutButton, closeWindowLabel);
@@ -263,12 +274,14 @@ public class GraphicalUI extends Application {
             closeWindowLabel.setText("You can now close this window.");
         });
 
-        expensesScene = new Scene(newBillPane, 300, 600);
+        expensesScene = new Scene(newBillPane, 300, 500);
         logoutScene = new Scene(logoutPane, 300, 250);
-
+        initialScene = new Scene(databasePane, 300, 250);
         primaryStage.setTitle("Travel expenses");
+        primaryStage.setX(500);
+        primaryStage.setY(50);
         loginScene = new Scene(loginPane, 300, 250);
-        primaryStage.setScene(loginScene);
+        primaryStage.setScene(initialScene);
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(e -> {
