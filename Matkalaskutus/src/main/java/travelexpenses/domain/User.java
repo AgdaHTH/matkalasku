@@ -6,8 +6,8 @@
 package travelexpenses.domain;
 
 /**
- *
- * @author Hilla
+ * Luokka sisältää käyttäjää koskevan tiedon käsittelemiseen tarvittavat metodit.
+ * 
  */
 public class User {
 

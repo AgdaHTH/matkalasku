@@ -44,13 +44,11 @@ public class GraphicalUI extends Application {
     private LocalDate beginning;
     private LocalDate end;
     
-    //private User currentUser;
-
     /**
      * Metodi alustaa userdao- ja billdao -oliot sekä luo sovelluslogiikkaa
      * hoitavan luokan TravelExpensesApp-olion.
      *
-     * @throws Exception Heittää poikkeuksen, jos dao-olioiden luominen ei
+     * @throws Exception Heittää poikkeuksen, jos Dao-olioiden luominen ei
      * onnistunut.
      */
     @Override
@@ -61,7 +59,7 @@ public class GraphicalUI extends Application {
     }
 
     /**
-     * Metodi sisältää graafisen käyttöliittymän luovan ja käyttöliittymää
+     * Metodi sisältää graafisen käyttöliittymän luovan ja sovelluslogiikkaa
      * käyttävän koodin.
      *
      * @param primaryStage JavaFX-kirjaston Stage-olio

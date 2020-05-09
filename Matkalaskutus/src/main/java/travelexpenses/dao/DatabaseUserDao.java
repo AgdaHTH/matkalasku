@@ -14,8 +14,9 @@ import java.util.List;
 import travelexpenses.domain.User;
 
 /**
- * Luokka tarjoaa metodit käyttäjää koskevan tietokannassa olevan tiedon
- * luomiseen, lukemiseen ja poistamiseen.
+ * Luokka toteuttaa rajapinnan UserDao ja se tarjoaa metodit käyttäjää koskevan 
+ * tietokannassa olevan tiedon luomiseen, lukemiseen ja poistamiseen.
+ * 
  */
 public class DatabaseUserDao implements UserDao {
 
@@ -66,9 +67,7 @@ public class DatabaseUserDao implements UserDao {
         stmt.setString(3, user.getUsername());
 
         stmt.executeUpdate();
-        stmt.close();
-        //connection.close();
-
+        stmt.close();       
     }
 
     /**

@@ -24,9 +24,6 @@ import static org.junit.Assert.*;
 public class BillTest {
     Bill bill; 
     
-    //public BillTest() {
-    //}
-    
     @Before
     public void setUp() {
         bill = new Bill(1, "Oxford", LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5), 
@@ -49,9 +46,4 @@ public class BillTest {
         assertEquals( LocalDate.of(2020, 1, 5), bill.getEndDate());
     }                     
     
-//    @Test
-//    public void countReimbursementCountsReimbursementCorrectly() {
-//        bill.addExpense(105.30);
-//        assertEquals(243.3, bill.countReimbursement(), 0.001);
-//    }
 }

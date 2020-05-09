@@ -11,8 +11,8 @@ import java.util.List;
 import travelexpenses.domain.User;
 
 /**
- *
- * @author Hilla
+ * Dao-rajapinta User-luokalle
+ * 
  */
 public interface UserDao {
 

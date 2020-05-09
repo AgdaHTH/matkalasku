@@ -16,12 +16,12 @@ tietokantaan tekemänsä muutokset.
 
 ### Testauskattavuus
 
-Testien rivikattavuus on käyttöliittymä poisluettuna 80% ja haaraumakattavuus 94%d.
+Testien rivikattavuus on käyttöliittymä poisluettuna 80% ja haaraumakattavuus 94%.
 
-![test coverage](jacoco_report.png)
+![test coverage](jacoco_capture.png)
 
-Testaamatta jäävät gettereiden ja settereiden lisäksi tietokannan luova metodi sovelluslogiikassa
-sekä SQLExceptionin kiinniottavat haarat tietokantaa käyttävissä metodeissa.
+Testaamatta jäävät tietokannan luova metodi sovelluslogiikassa sekä SQLExceptionin kiinniottavat 
+haarat tietokantaa käyttävissä metodeissa.
 
 ### Järjestelmätestaus
 

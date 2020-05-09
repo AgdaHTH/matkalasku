@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import travelexpenses.domain.Bill;
 
 /**
- *
- * @author Hilla
+ * Dao-rajapinta Bill-luokalle.
+ * 
  */
 public interface BillDao {
     void create(Bill bill, Connection connection) throws SQLException;

@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 /**
- *
- * @author Hilla
+ * Luokka sisältää matkalaskua koskevan tiedon käsittelemiseen tarvittavat metodit.
+ * 
  */
 public class Bill { 
     private int userid;
@@ -29,13 +29,7 @@ public class Bill {
         this.end = end;
         this.expense1 = expense1;
         this.allowance = allowance;
-    }
-    
-//    public Bill(String destination, LocalDate beginning, LocalDate end) {
-//        this.destination = destination;
-//        this.beginning = beginning;
-//        this.end = end;        
-//    }
+    }   
     
     public double getAllowance() {
         return this.allowance;
@@ -63,11 +57,6 @@ public class Bill {
     
     public double getExpense1() {
         return this.expense1;
-    }                
-    
-//    public double countReimbursement() {
-//        return countAllowance() + this.expense1;
-//    }
-        
+    }                        
     
 }

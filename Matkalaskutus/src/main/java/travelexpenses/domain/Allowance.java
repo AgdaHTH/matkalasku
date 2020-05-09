@@ -67,8 +67,6 @@ public class Allowance {
         }
         
         return allowance;
-    }
-    
-    
+    }      
 
 }

@@ -202,7 +202,7 @@ public class TravelExpensesApp {
      * Metodi tarkastaa, onko parametrina annettu päivämäärä oikeanmuotoinen.
      * Vuoden tulee olla välillä 1900-kuluva vuosi, kuukausien muodossa 01, 02,
      * ..., 12 ja päivien muodossa 01, 02, ..., 31. Metodi ei tarkasta onko
-     * päivämää mahdollinen, esimerkiksi kuukausien päivien lukumäärä tai
+     * päivämäärä mahdollinen, esimerkiksi tietyn kuukauden päivien lukumäärä tai
      * karkausvuosi. Metodi tarkastaa, että parametrina annettu päivämäärä
      * voidaan pilkkoa "-" merkin kohdalta kolmeen osaan.
      *
