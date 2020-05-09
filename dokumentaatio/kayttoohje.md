@@ -60,7 +60,7 @@ sovellus ilmoittaa tästä ja kehottaa yrittämään uudestaan.
 
 ### Lopetus ja uloskirjautuminen
 
-![logout scene](logoutScene.PNG)
+![logout scene](lougoutScene.PNG)
 
 Kun lasku on syötetty, avautuu lopetusnäkymä, jossa ilmoitetaan, että matkalaskun 
 tallennus onnistui ja pyydetään käyttäjää kirjautumaan ulos sovelluksesta.
