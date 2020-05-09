@@ -108,7 +108,7 @@ Sovelluslogiikka palauttaa päivärahan arvon, jonka käyttöliittymä tallettaa
 
 ![create bill sequence](creating_bill.png)
 
-Kun käyttöliittymällä on tiedossa päivämäärät ja päivärahan määrä, se pytää sovelluslogiikalta tiedon kirjautuneesta
+Kun käyttöliittymällä on tiedossa päivämäärät ja päivärahan määrä, se pyytää sovelluslogiikalta tiedon kirjautuneesta
 käyttäjästä (getCurrentUser). Näillä tiedoilla käyttöliittymä kutsuu sovelluslogiikan metodia addBill, joka
 kutsuu BillDaon metodia create. Tämän jälkeen sovelluslogiikka tiedottaa käyttöliittymää, joka 
 avaa lougout-näkymän.

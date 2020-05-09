@@ -12,23 +12,27 @@ kaksi käyttäjäryhmää, matkalaskujen tekijät  eli normaalit käyttäjät ja
 matkalaskuja maksettavaksi.
 
 ### Perustoiminnallisuudet
+
 #### Ennen kirjautumista
-* Käyttäjä voi rekisteröityä sovellukseen. -TEHTY
-* Rekisteröitynyt käyttäjä voi kirjautua sisään sovellukseen. -TEHTY
+* Käyttäjä voi valita haluaako hän alustaa tietokannan vai ei.
+* Käyttäjä voi rekisteröityä sovellukseen. 
+* Rekisteröitynyt käyttäjä voi kirjautua sisään sovellukseen. 
 
 #### Kirjautumisen jälkeen 
-* Käyttöliittymässä näkyy kirjautuneen käyttäjän tunnus -TEKEMÄTTÄ
-* Käyttäjä voi lisätä itselleen matkalaskun. -TEHTY
-* Yhdellä käyttäjällä voi olla useampi matkalasku. -TEHTY
-* Matkalaskussa on tieto matkustajasta, matkakohteesta, matkan alku- ja loppupäivämäärästä, matkakuluista 
-sekä päivärahasta ja nämä kaikki tallentuvat tietokantaan. -TEHTY
-* Käyttäjä voi syöttää laskulle useita kulueriä. -TEKEMÄTTÄ
+* Käyttäjä voi lisätä itselleen matkalaskun.
+* Yhdellä käyttäjällä voi olla useampi matkalasku.
+* Matkalaskussa on tieto matkustajasta, matkakohteesta ja sen sijainnista, matkan alku- ja loppupäivämäärästä, 
+matkakuluista sekä päivärahasta 
+* Kaikki laskun tiedot tallentuvat omiin sarakkeisiinsa tietokantaan.
 * Sovellus laskee päivärahan matkan keston perusteella, ja sen mukaan, onko matka suuntautunut 
-kotimaahan vai ulkomaille. -TEHTY (PUUTTUU ulkomaille suuntautuneen matkan käsittely)
+kotimaahan vai ulkomaille.
 
 ### Jatkokehitysmahdollisuuksia
-* Käyttäjä näkee listauksen omista matkalaskuistaan.
-* Käyttäjä voi selata laskujaan tietyltä aikaväliltä
+* Käyttöliittymässä näkyy kirjautuneen käyttäjän tunnus
+* Yhdelle laskulle voi syöttää useita kulueriä. Tässä vaiheessa tietokantaan olisi parasta luoda 
+kuluja varten uusi taulu.
+* Käyttäjä näkee listauksen omista matkalaskuistaan ja voi selata laskujaan tietyltä aikaväliltä.
 * Sovellukseen lisätään admin-käyttäjä, jonka on mahdollista merkitä 
 matkalaskuja hyväksytyiksi.
+
 
