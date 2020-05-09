@@ -25,6 +25,8 @@ Ohjelma kysyy alussa käyttäjältä, haluaako tämä luoda tietokannan.
 
 [Viikko 6](https://github.com/AgdaHTH/matkalasku/releases/tag/viikko6)
 
+[Loppupalautus](https://github.com/AgdaHTH/matkalasku/releases/tag/viikko7)
+
 ## Komentorivitoiminnot
 
 ### Projektin ajaminen

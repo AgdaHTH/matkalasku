@@ -1,10 +1,30 @@
 ## Käyttöohje
 
+Lataa tiedosto [Matkalaskutus.jar](https://github.com/AgdaHTH/matkalasku/releases/tag/viikko7)
+
+### Konfigurointi
+
+Sovellus luo tarvittaessa käyttämänsä sqlite-tietokannan *travelexpenses.db*. Käyttäjä voi 
+päättää luodaanko tietokanta vai ei.
+
+### Ohjelman käynnistäminen
+
+Ohjelma käynnistetään komennolla
+
+    java -jar Matkalaskutus.jar
+
 ### Aloitus
 Sovellus käynnistyy näkymään, jossa käyttäjä valitsee, haluaako hän alustaa 
-tietokannan vai ei. 
+tietokannan vai ei. Lähtökohtaisesti tietokanta kannattaa alustaa, kun ohjelman ajaa
+ensimmäisen kerran. 
 
 ![database scene](databaseScene.PNG)
+
+Jos tietokanta on jo olemassa, ja käyttäjä valitsee "Yes", tietokanta alustetaan uudestaan, eli
+kaikki jo olemassa olevassa tietokanssa oleva tieto poistetaan. 
+
+HUOM! Jos käyttäjä valitsee "No" ajaessaan ohjelman ensimmäistä kertaa (eli kun tietokantaa
+ei ole olemassa), ohjelma nykytilassaan valitettavasti kaatuu.
 
 ### Kirjautuminen
 
