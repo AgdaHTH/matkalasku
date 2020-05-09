@@ -15,15 +15,14 @@ kirjautua sisään sovellukseen.
 ![login scene](loginScene.PNG)
 
 ### Uuden käyttäjän luominen
-Jos käyttäjä on uusi, hän siis valitsee napin ´Create a new user´. Avautuu
+Jos käyttäjä on uusi, hän siis valitsee napin *Create a new user*. Avautuu
 uusi ikkuna, johon käyttäjä syöttää valitsemansa käyttäjätunnuksen
 sekä oman suku- ja etunimensä. 
 
 ![new user](new_user.PNG)
 
-Painettuaan ´Create´ nappia käyttäjälle avautuu uudestaan
-sisäänkirjautumisnäkymä, jossa ilmoitetaan käyttäjäntunnuksen luomisen
-onnistumisesta. 
+Käyttäjän painettua *Create* nappia avautuu uudestaan sisäänkirjautumisnäkymä, 
+jossa ilmoitetaan käyttäjätunnuksen luomisen onnistumisesta. 
 
 ![user created](user_created.PNG)
 
@@ -34,7 +33,7 @@ olevan tunnuksen, ohjelma ilmoittaa, että tunnus on jo käytössä:
 
 ### Sisäänkirjautuminen
 Kirjautuakseen sisään käyttäjän tulee kirjoittaa käyttäjänimensä kenttään
-´username´. Jos kirjautuminen ei onnistu, sovellus ilmoittaa tästä: "Username was not found". 
+*username*. Jos kirjautuminen ei onnistu, sovellus ilmoittaa tästä: "Username was not found". 
 
 ![username not found](username_not_found.PNG)
 
@@ -51,7 +50,7 @@ tiedot.
 * Count allowance: napista painamalla sovellus laskee päivärahan määrän ja ilmoittaa sen
 * Expenses: alasvetovalikosta valitaan syötettävän kulun tyyppi (Flights, Hotel, Other)
 * Create a new travel expenses statement: napista painamalla matkalaskun tiedot
- tallennetaan tietokantaan sisäänkirjautunee[]n käyttäjän tiedoilla
+ tallennetaan tietokantaan sisäänkirjautuneen käyttäjän tiedoilla
 
 Päivärahan laskeminen tarkistaa samalla päivämääräsyötteet. Jos ne eivät kelpaa,
 sovellus ilmoittaa tästä ja kehottaa yrittämään uudestaan.
