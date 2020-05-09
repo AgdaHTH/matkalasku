@@ -11,9 +11,9 @@ käyttäjä, joilla voi kaikilla olla useita matkalaskuja.
 
 [Arkkitehtuurikuvaus](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Työaikakirjanpito](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/tuntikirjanpito.md)
-
 [Testausdokumentti](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/testaus.md)
+
+[Työaikakirjanpito](https://github.com/AgdaHTH/matkalasku/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Tietokannan alustaminen
 
