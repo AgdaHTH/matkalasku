@@ -1,6 +1,6 @@
 ## Työaikakirjanpito
 
-| Päivä | Aika   | Mitä tein                                               |
+| Päivä | Tunnit | Mitä tein                                               |
 | ------|:------:|:--------------------------------------------------------|
 | 24.3. |  2.5   | Suunnittelin aihetta ja kirjoitin alustavaa määrittelyä |
 | 29.3  |  1     | Loin projektin ja ensimmäiset luokat, kokeilin ajamista |
@@ -38,7 +38,7 @@
 |       |        | vaatimusmäärittelyn, README:n ja .gitignoren.|
 | 27.4. |    1   | Tutustuin JavaDociin ja aloitin sen kirjoittamisen.|
 | 28.4. |    9   | Kirjoitin JavaDocin useammalle luokalle. Lisäsin tietokannan Bill-tauluun sarakkeet|
-|       |        | usempia kuluja ja päivärahaa varten. Lisäsin nämä myös muuttujiksi Bill-luokkaan. Muutin Dao-|
+|       |        | useampia kuluja ja päivärahaa varten. Lisäsin nämä myös muuttujiksi Bill-luokkaan. Muutin Dao-|
 |       |        | luokan metodit ottamaan huomioon nämä ja Bill-taulun viiteavaimen User-luokkaan. |
 |       |        | Lisäsin käyttöliittymään kohdat, joissa valitaan syötetyn kulun tyyppi ja lasketaan|
 |       |        | päiväraha. Korjasin bugin matkan loppupäivämäärän syötössä. Siirsin päivärahaan liittyvän|
@@ -63,12 +63,13 @@
 | 6.5.  |   3    | Lisäsin käyttöliittymään uuden aloitusnäkymän, jossa kysytään, alustetaanko tietokanta, ja|
 |       |        | ja siirsin createDatabase-luokan toiminnallisuuden sovelluslogiikkan metodiin, jota|
 |       |        | kutsutaan jos käyttöliittymässä valitaan tietokannan alustaminen. Kirjoitin muutaman testin|
-|       |        | lisää ja jatkoin arkkitehtuurin kuvaamista.
-| 7.5.  |   4    | Täydensin arkkitehtuuridokumentaatiota lisäkaavioilla ja sanallisilla selityksillä, tarkensin 
-|       |        | käyttöohjetta ja lisäsin siihen useita kuvakaappauksia. Aloitin testausdokumentin
-|       |        | kirjoittamisen ja tallensin testikattavuusraportin jacocon sivuilta. 
-| 8.5.  |   1    | Kirjoitin testausdokumenttia.
-| 9.5.  |   2    | Kirjoitin testausdokumentin loppuun, päivitin vaatimusmäärittelyn, tarkastin checkstylen,
-|       |        | siistin koodin ja tarkastin javadocit. Paketoin loppupalautuksen releasen. 
-| Yht.  | 72.5   | 
+|       |        | lisää ja jatkoin arkkitehtuurin kuvaamista.|
+| 7.5.  |   4    | Täydensin arkkitehtuuridokumentaatiota lisäkaavioilla ja sanallisilla selityksillä, tarkensin |
+|       |        | käyttöohjetta ja lisäsin siihen useita kuvakaappauksia. Aloitin testausdokumentin|
+|       |        | kirjoittamisen ja tallensin testikattavuusraportin jacocon sivuilta. |
+| 8.5.  |   1    | Kirjoitin testausdokumenttia.|
+| 9.5.  |   3    | Kirjoitin testausdokumentin loppuun, päivitin vaatimusmäärittelyn, tarkastin checkstylen,|
+|       |        | siistin koodin ja tarkastin javadocit. Täydensin käyttöohjetta. Paketoin loppupalautuksen|
+|       |        | releasen ja päivitin readmen.| 
+| Yht.  | 73.5   | 
 

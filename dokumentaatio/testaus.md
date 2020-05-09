@@ -29,9 +29,9 @@ Ohjelmaa on testattu manuaalisesti erilaisilla syötteillä.
 
 ## Asennus- ja konfigurointi
 
-Sovellsuta on käytetty ja testattu sekä Windows10 että Linux ympäristöissä.
+Sovellusta on käytetty ja testattu sekä Windows10 että Linux ympäristöissä.
 
-Sovellusta on testattu sekä tilanteissa, joissa tietokantaa ei ole olemassa että
+Sovellusta on testattu sekä tilanteissa, joissa tietokantaa on olemassa että
 tilanteissa, joissa sitä ei ole ja se luodaan ohjelman alussa.
 
 ## Toiminnallisuudet
