@@ -31,7 +31,7 @@ Ohjelmaa on testattu manuaalisesti erilaisilla syötteillä.
 
 Sovellusta on käytetty ja testattu sekä Windows10 että Linux ympäristöissä.
 
-Sovellusta on testattu sekä tilanteissa, joissa tietokantaa on olemassa että
+Sovellusta on testattu sekä tilanteissa, joissa tietokanta on olemassa että
 tilanteissa, joissa sitä ei ole ja se luodaan ohjelman alussa.
 
 ## Toiminnallisuudet
